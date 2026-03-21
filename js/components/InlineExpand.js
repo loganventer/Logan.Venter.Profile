@@ -12,6 +12,9 @@ export class InlineExpand extends IComponent {
 
   mount() {
     this._handler = (e) => {
+      // Let real links (external, section-link) work without interference
+      if (e.target.closest('a')) return;
+
       const toggle = e.target.closest('.exp-toggle');
       if (!toggle) return;
       e.preventDefault();
