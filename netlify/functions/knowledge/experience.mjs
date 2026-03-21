@@ -24,8 +24,10 @@ export const experience = [
       "Led internal AI initiative with dynamic prompt generation for OpenAI API integration",
       "Architected LLM-powered automation tools for SDET and code review workflows",
       "Applied iDesign architectural methodology for maintainable backend systems",
-      "Led technical development, release, and maintenance of software systems",
-      "Drove CI/CD pipelines and technical roadmap for multiple products",
+      "Led technical development, release, and maintenance of end-to-end software systems in the online gaming industry",
+      "Drove CI/CD pipelines (TeamCity, Octopus Deploy) and technical roadmap for multiple products",
+      "Assessed complexity, scope, risk, and engineering effort for significant software development projects",
+      "Contributed to architecture roadmaps, ensuring adherence to iDesign decomposition and layering principles",
       "Mentored junior developers",
     ],
   },
@@ -35,9 +37,11 @@ export const experience = [
     title: "Senior Software Developer GMIC.Net (Consultant)",
     period: "May 2016 - Nov 2018",
     responsibilities: [
-      "Developed features and bug fixes as consultant",
-      "Managed CI/CD build processes",
-      "Handled branch and release management with Git",
+      "Developed features and bug fixes on the GMIC.Net enterprise platform serving the mining and minerals industry",
+      "Managed CI/CD build processes on client-hosted infrastructure",
+      "Handled branch and release management with Git using feature, release, and hotfix branching strategy",
+      "Executed system integrations between GMIC.Net and third-party systems at client sites",
+      "Participated in technical discussions and design sessions relating to product development",
     ],
   },
   {
@@ -45,9 +49,11 @@ export const experience = [
     title: "Software Developer / Team Lead",
     period: "Jun 2015 - Apr 2016",
     responsibilities: [
-      "Windows team lead for encrypted communications application",
-      "Development in C#, C++, WPF, Silverlight",
-      "Database work with SQLite-SQLCipher for encrypted storage",
+      "Windows team lead for the SC3 encrypted communications application (voice, messaging, file transfer)",
+      "Development in C# and C++ with WPF desktop UI and Silverlight cross-platform client",
+      "Implemented encrypted local storage using SQLite-SQLCipher with AES-256 encryption",
+      "Managed CI/CD with Bamboo build server and Stash (Bitbucket) for Git hosting, releasing to Windows Store",
+      "Led the Windows team coordinating with scrum master, product owner, and QA",
     ],
   },
   {
@@ -55,7 +61,8 @@ export const experience = [
     title: "Director",
     period: "Jul 2014 - May 2015",
     responsibilities: [
-      "System integration with Syspro ERP",
+      "UDCS system design and implementation for dealer network management",
+      "Integration of UDCS front-ends and back-ends into Syspro ERP for finance, inventory, and reporting",
       "Business operations and client management",
     ],
   },
@@ -64,8 +71,10 @@ export const experience = [
     title: "Software Developer",
     period: "Nov 2012 - Jun 2014",
     responsibilities: [
-      "UDCS system architecture and integration",
-      "Software development for logistics systems",
+      "Designed and implemented the UDCS system architecture for dealer customer service operations",
+      "Integrated UDCS with Syspro ERP for finance, inventory, and reporting",
+      "Full-stack implementation: database, data access, business logic, and front-end",
+      "Managed deployment and verification after QA sign-off, maintained software and provided dealer support",
     ],
   },
   {
@@ -73,8 +82,10 @@ export const experience = [
     title: "Software Developer",
     period: "Apr 2011 - Oct 2012",
     responsibilities: [
-      "Wattkeeper energy management system development",
-      "Software engineering for energy monitoring solutions",
+      "Designed and implemented the Wattkeeper energy management system for monitoring electrical consumption",
+      "Implemented device communication protocols for energy monitoring hardware (serial and TCP/IP)",
+      "Managed deployment and verification using Hudson build server (CI/CD)",
+      "Assisted with client queries and billing cycles",
     ],
   },
   {
@@ -82,8 +93,9 @@ export const experience = [
     title: "Software Developer",
     period: "Sep 2009 - Mar 2011",
     responsibilities: [
-      "Software development and system maintenance",
-      "Technical support and feature implementation",
+      "Initial development of the Wattkeeper energy management platform (later continued at Enermatics)",
+      "Implemented device communication protocols for energy monitoring hardware",
+      "Managed deployment and verification using Hudson build server",
     ],
   },
   {
@@ -92,8 +104,9 @@ export const experience = [
     title: "Programmer",
     period: "Jul 2007 - Aug 2009",
     responsibilities: [
-      "Programming in COBOL, Visual Basic, and Delphi",
-      "Website development",
+      "Desktop application development in Visual Basic and Delphi with database-driven business applications",
+      "Mainframe COBOL development: batch processing, report generation, and data transformation",
+      "Website development and client system management",
     ],
   },
 ];
