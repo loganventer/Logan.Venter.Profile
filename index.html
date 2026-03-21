@@ -1046,27 +1046,55 @@
                         <h3 class="text-xl font-semibold text-sky-600">AI/ML Engineering</h3>
                         <div>LangChain, LangGraph, Model Context Protocol (MCP), <span class="exp-toggle">RAG pipelines</span><div class="exp-detail-content">
                             <ul>
-                                <li>14 chunking strategies for different document types and retrieval patterns</li>
+                                <li>14 chunking strategies: recursive, semantic, sentence, fixed, markdown, HTML, code, table-aware, hierarchical, contextual, proposition, late, agentic, compression</li>
                                 <li>Hybrid retrieval combining BM25 keyword matching with dense vector search</li>
-                                <li>RAPTOR hierarchical summarization and score fusion (RRF, weighted)</li>
+                                <li>Score fusion via Reciprocal Rank Fusion (RRF) and weighted strategies</li>
+                                <li>RAPTOR hierarchical summarization for multi-level context understanding</li>
                                 <li>HyDE (Hypothetical Document Embeddings) for semantic intent matching</li>
-                                <li>Trustworthy generation with hallucination detection</li>
+                                <li>ColBERT late interaction for fine-grained token-level relevance</li>
+                                <li>Graph RAG for relationship-aware retrieval</li>
+                                <li>Deep search patterns for multi-step retrieval</li>
+                                <li>Trustworthy generation with confidence scoring and hallucination detection</li>
+                                <li>Fluent builder API with presets: Conversational, Production, High-Accuracy, Code Search, Research</li>
+                                <li>Query transformation and expansion for improved recall</li>
+                                <li>Document ingestion pipeline with metadata extraction and versioning</li>
                             </ul>
                         </div>, <span class="exp-toggle">agentic orchestration</span><div class="exp-detail-content">
                             <ul>
-                                <li>Planning coordination: ReAct, Plan-Execute, Adaptive strategy selection</li>
-                                <li>Tool calling with retry logic, canary tokens, and automatic discovery</li>
-                                <li>Multi-model routing by engine type (agentic, planning, reflection)</li>
-                                <li>MCP tool integration for external tool server composition</li>
+                                <li>Planning coordinator with 3 strategies: ReAct (iterative reasoning), Plan-Execute (upfront planning), Adaptive (LLM auto-selects based on task complexity)</li>
+                                <li>Tool registry with automatic discovery, execution with retry logic, and canary token support</li>
+                                <li>Multi-model routing by engine type: agentic, planning, reflection, classification</li>
+                                <li>LLM provider registry for runtime model selection and fallback</li>
+                                <li>MCP tool loader for external tool server composition via Model Context Protocol</li>
+                                <li>Vector-backed conversation memory with semantic similarity search</li>
+                                <li>Structured output generation with retry logic and validation steps</li>
                             </ul>
-                        </div>, Vector Databases (Qdrant, FAISS, Pinecone, ChromaDB, Weaviate), Prompt Engineering, <span class="exp-toggle">Prompt Security</span><div class="exp-detail-content">
+                        </div>, <span class="exp-toggle">AI security</span><div class="exp-detail-content">
                             <ul>
-                                <li>Multi-turn attack detection across conversation history</li>
-                                <li>Prompt injection scanning with pattern-based and semantic detection</li>
-                                <li>Risk accumulation/decay with configurable thresholds</li>
-                                <li>Canary tokens, spotlighting, and capability restriction</li>
+                                <li>Agent security monitor with risk accumulation and decay over conversation turns</li>
+                                <li>Multi-turn attack detection tracking escalation patterns across conversation history</li>
+                                <li>Risk scoring with configurable thresholds triggering capability restriction or human escalation</li>
+                                <li>Prompt injection scanning with pluggable scanner adapter registry</li>
+                                <li>Canary token management for data exfiltration detection</li>
+                                <li>Tool chain validation preventing unauthorized operation sequences</li>
+                                <li>Input sanitization and spotlighting (user input wrapped in security delimiters)</li>
+                                <li>Output filtering detecting system prompt leakage patterns</li>
                             </ul>
-                        </div>, Semantic Search, Embeddings, A/B Testing.</div>
+                        </div>, <span class="exp-toggle">context management</span><div class="exp-detail-content">
+                            <ul>
+                                <li>Rolling window manager with sliding window over conversation history</li>
+                                <li>Fallback summarization when context exceeds window limits</li>
+                                <li>Context assembly for RAG results with relevance-based selection</li>
+                                <li>Conversation reranking and compression for long conversations</li>
+                            </ul>
+                        </div>, Vector Databases (Qdrant, FAISS, Pinecone, ChromaDB, Weaviate), Prompt Engineering, Semantic Search, Embeddings, <span class="exp-toggle">multi-agent systems</span><div class="exp-detail-content">
+                            <ul>
+                                <li>Hierarchical agent orchestration with recursive depth control</li>
+                                <li>30 specialized agents covering backend (8 languages) and frontend (4 frameworks)</li>
+                                <li>Master orchestrators coordinating review and fix agents</li>
+                                <li>Bounded scope per agent preventing context fragmentation</li>
+                            </ul>
+                        </div>, A/B Testing.</div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-sky-600">Multi-Protocol Backend Architecture</h3>
@@ -1126,7 +1154,26 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-sky-600">Agentic AI Design Patterns</h3>
-                        <p>Implementing production-grade agentic AI security and orchestration patterns: spotlighting for prompt injection defence, input/output guardrails, tool use governance with validation boundaries, human-in-the-loop approval flows, and structured output filtering to prevent information leakage.</p>
+                        <div>Implementing production-grade <span class="exp-toggle">agentic security patterns</span><div class="exp-detail-content">
+                            <ul>
+                                <li>Spotlighting: user input wrapped in security delimiters to prevent prompt injection</li>
+                                <li>Input/output guardrails with sanitization and leakage detection</li>
+                                <li>Multi-turn attack scoring with risk accumulation and decay across conversation turns</li>
+                                <li>Canary token injection for data exfiltration detection</li>
+                                <li>Tool chain validation preventing unauthorized operation sequences</li>
+                                <li>Human-in-the-loop escalation when risk thresholds are exceeded</li>
+                                <li>Capability restriction dynamically reducing agent permissions under threat</li>
+                            </ul>
+                        </div> and <span class="exp-toggle">orchestration patterns</span><div class="exp-detail-content">
+                            <ul>
+                                <li>ReAct: iterative Thought-Action-Observation reasoning loops</li>
+                                <li>Plan-Execute: upfront planning followed by step-by-step execution</li>
+                                <li>Adaptive: LLM auto-selects strategy based on task complexity</li>
+                                <li>Tool use governance with validation boundaries and retry logic</li>
+                                <li>Structured output generation with schema validation and retry</li>
+                                <li>Content style enforcement for consistent LLM output formatting</li>
+                            </ul>
+                        </div> for enterprise AI platforms.</div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-sky-600">Database &amp; Vector Storage</h3>
