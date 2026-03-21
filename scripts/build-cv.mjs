@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -9,6 +9,7 @@ import { experience } from "../netlify/functions/knowledge/experience.mjs";
 import { skills } from "../netlify/functions/knowledge/skills.mjs";
 import { education } from "../netlify/functions/knowledge/education.mjs";
 import { interests } from "../netlify/functions/knowledge/interests.mjs";
+import { references } from "../netlify/functions/knowledge/references.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const templatePath = join(__dirname, "cv-template.html");
@@ -18,16 +19,26 @@ function esc(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
+// Map company names to their reference entries for inline display
+function findRefs(companyName) {
+  const q = companyName.toLowerCase();
+  return references.filter(r => q.includes(r.company.toLowerCase().split("/")[0].trim()) || r.company.toLowerCase().includes(q.split("(")[0].trim()));
+}
+
 function buildContent() {
   let html = "";
 
-  // Header
+  // Header with profile link
   html += `<h1>Logan Venter</h1>\n`;
   html += `<div class="subtitle">Senior AI/Platform Engineer</div>\n`;
-  html += `<div class="contact"><a href="mailto:logan.venter@outlook.com">logan.venter@outlook.com</a> &nbsp;|&nbsp; +27 60 974 2113 / +27 76 414 0083</div>\n`;
+  html += `<div class="contact">`;
+  html += `<a href="mailto:logan.venter@outlook.com">logan.venter@outlook.com</a>`;
+  html += ` &nbsp;|&nbsp; +27 60 974 2113 / +27 76 414 0083`;
+  html += ` &nbsp;|&nbsp; <a href="https://loganventer.com">loganventer.com</a>`;
+  html += `</div>\n`;
   html += `<p style="margin:8px 0;font-size:9.5pt;color:#334155;">${esc(about.summary)}</p>\n`;
 
-  // Experience
+  // Experience with inline references
   html += `<h2>Professional Experience</h2>\n`;
   for (const exp of experience) {
     html += `<h3>${esc(exp.title)}</h3>\n`;
@@ -38,13 +49,27 @@ function buildContent() {
       html += `  <li>${esc(r)}</li>\n`;
     }
     html += `</ul>\n`;
+
+    // Inline references for this company
+    const refs = findRefs(exp.company);
+    if (refs.length > 0) {
+      const contacts = refs.flatMap(r => r.contacts);
+      html += `<div class="note" style="margin-top:2px;">References: ${contacts.map(c => `${esc(c.name)} (${esc(c.phone)})`).join(", ")}</div>\n`;
+    }
   }
 
-  // Projects
+  // Projects with highlights
   html += `<h2>Featured Projects</h2>\n`;
   for (const proj of projects) {
     html += `<h3>${esc(proj.name)}</h3>\n`;
     html += `<p style="font-size:9.5pt;color:#334155;margin:2px 0;">${esc(proj.description)}</p>\n`;
+    if (proj.highlights && proj.highlights.length > 0) {
+      html += `<ul>\n`;
+      for (const h of proj.highlights) {
+        html += `  <li>${esc(h)}</li>\n`;
+      }
+      html += `</ul>\n`;
+    }
     html += `<div style="margin:3px 0;">`;
     for (const t of proj.tech) {
       html += `<span class="tag">${esc(t)}</span>`;
@@ -81,7 +106,7 @@ function buildContent() {
     }
   }
 
-  // Interests
+  // Personal Interests
   html += `<h2>Personal Interests</h2>\n`;
   html += `<ul>\n`;
   for (const item of interests.software) {
@@ -92,12 +117,24 @@ function buildContent() {
   }
   html += `</ul>\n`;
 
-  // Values
+  // Core Values
   html += `<h2>Core Values</h2>\n<ul>\n`;
   for (const v of about.values) {
     html += `  <li>${esc(v)}</li>\n`;
   }
   html += `</ul>\n`;
+
+  // All References
+  html += `<h2>References</h2>\n`;
+  html += `<div class="skills-grid">\n`;
+  for (const ref of references) {
+    html += `<div class="skill-item" style="margin-bottom:6px;"><span class="skill-label">${esc(ref.company)}</span><br>`;
+    for (const c of ref.contacts) {
+      html += `${esc(c.name)}: ${esc(c.phone)}<br>`;
+    }
+    html += `</div>\n`;
+  }
+  html += `</div>\n`;
 
   return html;
 }
