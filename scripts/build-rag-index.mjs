@@ -1,4 +1,4 @@
-import { KNOWLEDGE } from "../netlify/functions/knowledge.mjs";
+import { KNOWLEDGE } from "../netlify/functions/knowledge/index.mjs";
 import { chunkKnowledge } from "../netlify/functions/chunker.mjs";
 import { buildBm25Index } from "../netlify/functions/bm25.mjs";
 import { tokenize } from "../netlify/functions/text-utils.mjs";

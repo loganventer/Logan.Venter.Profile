@@ -1,0 +1,133 @@
+/* === Theme Variables === */
+:root {
+    /* Backgrounds */
+    --bg-body: #111827;
+    --bg-card: rgba(31, 41, 55, 0.8);
+    --bg-card-solid: #1f2937;
+    --bg-input: rgba(31, 41, 55, 0.6);
+    --bg-code: rgba(0, 0, 0, 0.4);
+    --bg-code-header: rgba(0, 0, 0, 0.3);
+    --bg-header: rgba(31, 41, 55, 0.8);
+    --bg-dropdown: #1F2937;
+    --bg-mobile-menu: #111827;
+    --bg-project: rgba(15, 23, 42, 0.6);
+    --bg-chatbot: rgba(15, 23, 42, 0.6);
+    --bg-chatbot-input: rgba(15, 23, 42, 0.8);
+    --bg-mermaid: rgba(0, 0, 0, 0.3);
+
+    /* Text */
+    --text-primary: #E5E7EB;
+    --text-secondary: #D1D5DB;
+    --text-muted: #9CA3AF;
+    --text-dim: #6B7280;
+    --text-heading: #FFFFFF;
+    --text-code: #e2e8f0;
+
+    /* Accent */
+    --accent: #0EA5E9;
+    --accent-hover: #0284C7;
+    --accent-light: #38BDF8;
+    --accent-lighter: #7DD3FC;
+    --accent-glow: rgba(14, 165, 233, 0.25);
+
+    /* Borders */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-medium: rgba(255, 255, 255, 0.2);
+    --border-dropdown: #374151;
+    --border-card-hover: rgba(56, 189, 248, 0.5);
+
+    /* Shadows */
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --shadow-card-hover: rgba(0, 0, 0, 0.3);
+
+    /* Scrollbar */
+    --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+
+    /* Chat-specific */
+    --chat-user-bg: rgba(14, 165, 233, 0.25);
+    --chat-user-border: rgba(14, 165, 233, 0.4);
+    --chat-user-text: #e0f2fe;
+    --chat-assistant-bg: rgba(31, 41, 55, 0.8);
+    --chat-assistant-border: rgba(255, 255, 255, 0.1);
+    --chat-chip-bg: rgba(14, 165, 233, 0.1);
+    --chat-chip-border: rgba(14, 165, 233, 0.25);
+    --chat-action-bg: rgba(100, 116, 139, 0.15);
+    --chat-action-border: rgba(100, 116, 139, 0.3);
+
+    /* Mermaid edge labels in project cards */
+    --mermaid-edge-bg: #1e293b;
+    --mermaid-edge-text: #e2e8f0;
+}
+
+[data-theme="light"] {
+    /* Backgrounds */
+    --bg-body: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-card-solid: #ffffff;
+    --bg-input: rgba(241, 245, 249, 0.8);
+    --bg-code: rgba(0, 0, 0, 0.05);
+    --bg-code-header: rgba(0, 0, 0, 0.04);
+    --bg-header: rgba(255, 255, 255, 0.9);
+    --bg-dropdown: #ffffff;
+    --bg-mobile-menu: #ffffff;
+    --bg-project: rgba(255, 255, 255, 0.8);
+    --bg-chatbot: rgba(255, 255, 255, 0.8);
+    --bg-chatbot-input: rgba(241, 245, 249, 0.9);
+    --bg-mermaid: rgba(0, 0, 0, 0.04);
+
+    /* Text */
+    --text-primary: #1e293b;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --text-dim: #94a3b8;
+    --text-heading: #0f172a;
+    --text-code: #1e293b;
+
+    /* Accent */
+    --accent: #0284C7;
+    --accent-hover: #0369a1;
+    --accent-light: #0ea5e9;
+    --accent-lighter: #38bdf8;
+    --accent-glow: rgba(2, 132, 199, 0.2);
+
+    /* Borders */
+    --border-subtle: rgba(0, 0, 0, 0.06);
+    --border-light: rgba(0, 0, 0, 0.1);
+    --border-medium: rgba(0, 0, 0, 0.15);
+    --border-dropdown: #e2e8f0;
+    --border-card-hover: rgba(2, 132, 199, 0.5);
+
+    /* Shadows */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-card-hover: rgba(0, 0, 0, 0.15);
+
+    /* Scrollbar */
+    --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+
+    /* Chat-specific */
+    --chat-user-bg: rgba(2, 132, 199, 0.12);
+    --chat-user-border: rgba(2, 132, 199, 0.3);
+    --chat-user-text: #0c4a6e;
+    --chat-assistant-bg: rgba(241, 245, 249, 0.9);
+    --chat-assistant-border: rgba(0, 0, 0, 0.08);
+    --chat-chip-bg: rgba(2, 132, 199, 0.08);
+    --chat-chip-border: rgba(2, 132, 199, 0.2);
+    --chat-action-bg: rgba(100, 116, 139, 0.08);
+    --chat-action-border: rgba(100, 116, 139, 0.2);
+
+    /* Mermaid edge labels in project cards */
+    --mermaid-edge-bg: #f1f5f9;
+    --mermaid-edge-text: #1e293b;
+}
+
+/* === Tailwind Color Overrides for Light Theme === */
+[data-theme="light"] .text-white { color: var(--text-heading); }
+[data-theme="light"] .text-gray-400 { color: var(--text-muted); }
+[data-theme="light"] .text-gray-500 { color: var(--text-dim); }
+[data-theme="light"] .text-sky-400 { color: var(--accent-light); }
+[data-theme="light"] .text-sky-600 { color: var(--accent); }
+[data-theme="light"] .border-gray-400 { border-color: var(--border-dropdown); }
+[data-theme="light"] .border-sky-500 { border-color: var(--accent); }
+[data-theme="light"] .bg-sky-500 { background-color: var(--accent); }
+[data-theme="light"] .hover\:bg-sky-400:hover { background-color: var(--accent-hover); }

@@ -1,0 +1,140 @@
+/* Expandable inline keyword links within sentences */
+.exp-toggle {
+    cursor: pointer;
+    color: var(--accent-light);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--accent-light);
+    transition: color 0.2s ease;
+}
+.exp-toggle:hover {
+    color: var(--accent-lighter);
+    text-decoration-color: var(--accent-lighter);
+}
+.exp-toggle.active {
+    text-decoration-style: solid;
+}
+.exp-detail-content {
+    display: none;
+    margin-top: 8px;
+    padding: 12px 16px;
+    background: var(--bg-card-solid);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+.exp-detail-content ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 4px 0;
+}
+.exp-detail-content li {
+    margin: 3px 0;
+}
+.exp-detail-content .detail-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    background: rgba(14, 165, 233, 0.1);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    color: var(--accent-lighter);
+    margin: 2px 2px;
+}
+
+/* Inline section navigation links */
+.section-link {
+    color: var(--accent-light);
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent-light);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.section-link:hover {
+    color: var(--accent-lighter);
+    border-color: var(--accent-lighter);
+}
+
+/* Section Content & Cards */
+.content-card {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-medium);
+    background-clip: padding-box;
+    border-radius: 0.75rem;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px var(--shadow-card-hover);
+    border-color: var(--border-card-hover);
+}
+
+.content-card h1, .content-card h2, .content-card h3, .content-card h4 {
+    color: var(--text-heading);
+}
+
+.content-card p, .content-card li {
+    color: var(--text-secondary);
+}
+
+.content-card .text-sky-400 {
+    color: var(--accent-light);
+}
+.content-card .text-sky-400:hover {
+    color: var(--accent-lighter);
+}
+
+/* Section visibility and animation */
+.section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.section.active {
+    display: block;
+    opacity: 1;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Intersection Observer Animation */
+.section-visible {
+    animation: slideInFromBottom 0.6s ease forwards;
+}
+
+.profile-pic {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+}
+
+/* Hero top: transparent wrapper on desktop so float still works */
+.hero-top {
+    display: contents;
+}
+
+/* Mobile hero layout: CTA above profile image, stacked vertically */
+@media (max-width: 767px) {
+    .hero-top {
+        display: flex;
+        flex-direction: column;
+    }
+    .hero-top > .float-right {
+        float: none;
+        order: 2;
+        margin: 0 auto 1.5rem;
+    }
+    .hero-top > .hero-cta {
+        order: 1;
+    }
+}

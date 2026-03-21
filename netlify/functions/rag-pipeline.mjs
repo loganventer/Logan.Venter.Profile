@@ -4,7 +4,7 @@ import { scoreBm25 } from "./bm25.mjs";
 import { reciprocalRankFusion } from "./rrf.mjs";
 import { expandQuery } from "./query-expansion.mjs";
 import { loadRagIndex } from "./rag-index.mjs";
-import { searchKnowledge } from "./knowledge.mjs";
+import { searchKnowledge } from "./knowledge/index.mjs";
 
 const HYDE_TIMEOUT_MS = 3000;
 const HYDE_MODEL = "claude-haiku-4-5-20251001";

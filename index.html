@@ -38,7 +38,7 @@
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" as="style">
-    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="css/variables.css" as="style">
     
     <!-- External Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -107,7 +107,13 @@
     </script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/neural.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/chatbot.css">
     
     <!-- Service Worker Registration -->
     <script>
@@ -246,7 +252,7 @@
                 <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
                     <i id="theme-icon" class="fas fa-moon"></i>
                 </button>
-                <a href="assets/documents/Logan Venter Curriculum Vitae 13-06-2025.pdf" download="Logan Venter Curriculum Vitae 13-06-2025.pdf" class="btn-primary text-white font-bold py-2 px-4 rounded-lg inline-flex items-center justify-center whitespace-nowrap">
+                <a href="assets/documents/Logan Venter Curriculum Vitae 21-03-2026.pdf" download="Logan Venter Curriculum Vitae 21-03-2026.pdf" class="btn-primary text-white font-bold py-2 px-4 rounded-lg inline-flex items-center justify-center whitespace-nowrap">
                     <i class="fas fa-download mr-2"></i>Download My CV
                 </a>
             </div>
@@ -295,7 +301,7 @@
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('featured-projects', this); toggleMobileMenu();">Featured Projects</a>
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('personal-interests', this); toggleMobileMenu();">Personal Interests</a>
             <a href="#" class="block py-3 text-white text-xl" onclick="showSection('references', this); toggleMobileMenu();">References</a>
-            <a href="assets/documents/Logan Venter Curriculum Vitae 13-06-2025.pdf" download="Logan Venter Curriculum Vitae 13-06-2025.pdf" class="mt-8 inline-flex items-center justify-center btn-primary text-white font-bold py-3 px-5 rounded-lg whitespace-nowrap">
+            <a href="assets/documents/Logan Venter Curriculum Vitae 21-03-2026.pdf" download="Logan Venter Curriculum Vitae 21-03-2026.pdf" class="mt-8 inline-flex items-center justify-center btn-primary text-white font-bold py-3 px-5 rounded-lg whitespace-nowrap">
                 <i class="fas fa-download mr-2"></i>Download CV
             </a>
         </div>
@@ -308,7 +314,7 @@
                 <div class="hero-top">
                     <div class="float-right ml-6 mb-4 text-center">
                         <img src="assets/images/image.jpg" alt="A photo of Logan Venter" class="profile-pic rounded-full w-32 h-32 md:w-48 md:h-48 mx-auto object-cover shadow-lg border-2 border-sky-500">
-                        <a href="assets/documents/Logan Venter Curriculum Vitae 13-06-2025.pdf" download="Logan Venter Curriculum Vitae 13-06-2025.pdf" class="btn-primary inline-flex items-center justify-center lg:hidden text-white font-bold py-2 px-4 rounded-lg mt-4 whitespace-nowrap">
+                        <a href="assets/documents/Logan Venter Curriculum Vitae 21-03-2026.pdf" download="Logan Venter Curriculum Vitae 21-03-2026.pdf" class="btn-primary inline-flex items-center justify-center lg:hidden text-white font-bold py-2 px-4 rounded-lg mt-4 whitespace-nowrap">
                             <i class="fas fa-download mr-2"></i>Download CV
                         </a>
                     </div>
@@ -324,25 +330,156 @@
                 </div>
 
                 <h1 class="text-4xl font-bold mb-4">About Me</h1>
-                <p class="text-lg leading-relaxed mb-4">
-                    I architect and build production AI platforms. Over 20 years in software development, from multi-protocol server frameworks to agentic chatbot platforms to RAG-powered knowledge bases. My current focus: enabling organizations to deploy LLM-powered systems with enterprise-grade reliability.
-                </p>
+                <div class="text-lg leading-relaxed mb-4">
+                    I architect and build production AI platforms. Over <a class="section-link" onclick="showSection('exp-tih', this)">20 years</a> in software development, from <span class="exp-toggle">multi-protocol server frameworks</span><div class="exp-detail-content">
+                        <ul>
+                            <li>6 transport protocols: gRPC, SignalR, SSE, Streamable HTTP, WebSocket, REST</li>
+                            <li>Session management with JWT and API key authentication</li>
+                            <li>Automatic tool discovery and JSON schema validation</li>
+                        </ul>
+                        <a class="section-link" onclick="showSection('featured-projects', this)">View project &rarr;</a>
+                    </div> to <span class="exp-toggle">agentic chatbot platforms</span><div class="exp-detail-content">
+                        <ul>
+                            <li><a href="https://www.langchain.com/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">LangChain</a>/<a href="https://docs.langchain.com/langgraph/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">LangGraph</a> orchestration with pluggable LLM providers</li>
+                            <li>Planning coordination: ReAct, Plan-Execute, Adaptive strategy selection</li>
+                            <li>Multi-turn security pipeline with prompt injection defense</li>
+                            <li>Cross-platform frontends: React web, Flutter mobile/desktop</li>
+                        </ul>
+                        <a class="section-link" onclick="showSection('featured-projects', this)">View project &rarr;</a>
+                    </div> to <span class="exp-toggle">RAG-powered knowledge bases</span><div class="exp-detail-content">
+                        <ul>
+                            <li>14 chunking strategies for different document types</li>
+                            <li>Hybrid retrieval combining BM25 keyword matching with dense vector search</li>
+                            <li>RAPTOR hierarchical summarization for deep context</li>
+                            <li>Trustworthy generation with hallucination detection</li>
+                        </ul>
+                        <a class="section-link" onclick="showSection('featured-projects', this)">View project &rarr;</a>
+                    </div>. My current focus: enabling organizations to deploy <span class="exp-toggle">LLM-powered systems</span><div class="exp-detail-content">
+                        <ul>
+                            <li>Multi-provider routing with factory-based gateway selection</li>
+                            <li>Structured output generation with retry and validation</li>
+                            <li>OpenTelemetry observability with correlation IDs</li>
+                            <li>A/B testing frameworks for model evaluation</li>
+                        </ul>
+                        <a class="section-link" onclick="showSection('exp-tih', this)">View experience &rarr;</a>
+                    </div> with enterprise-grade reliability.
+                </div>
 
                 <h3 class="text-xl font-bold mb-3 text-sky-400">What I've Built</h3>
-                <ul class="list-disc list-outside pl-5 space-y-2 mb-6 text-lg">
-                    <li>Production MCP (Model Context Protocol) server framework for .NET 9 supporting multiple transport protocols with session management, authentication, and automatic tool discovery</li>
-                    <li>Agentic chatbot platform with LangChain/LangGraph orchestration, pluggable LLM providers, RAG pipelines across multiple vector stores, and cross-platform frontends (React, Flutter)</li>
-                    <li>MCP meta-tooling: servers that scaffold, build, and publish new MCP server projects from templates</li>
-                    <li>Knowledge base platforms with semantic search, hierarchical document management, and conversational RAG interfaces</li>
-                    <li>Azure DevOps integration tools exposing DevOps operations as AI-callable MCP tools</li>
+                <ul class="list-disc list-outside pl-5 space-y-3 mb-6 text-lg">
+                    <li>Production <span class="exp-toggle">MCP server framework</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>6 transport protocols: stdio, REST, SSE, Streamable HTTP, SignalR, gRPC</li>
+                                <li>12+ production example server implementations</li>
+                                <li>JWT and API key authentication with session management</li>
+                                <li>JSON schema validation for tool inputs and automatic tool discovery from assemblies</li>
+                                <li>LangChain/LangGraph integration with Python client support</li>
+                            </ul>
+                            <div class="mt-2">
+                                <span class="detail-tag">.NET 9</span>
+                                <span class="detail-tag">C#</span>
+                                <span class="detail-tag">gRPC</span>
+                                <span class="detail-tag">SignalR</span>
+                                <span class="detail-tag">MCP</span>
+                            </div>
+                            <a class="section-link" onclick="showSection('featured-projects', this)">View project &rarr;</a>
+                        </div>
+                     for .NET 9 with multi-transport support, session management, and automatic tool discovery</li>
+                    <li><span class="exp-toggle">Agentic chatbot platform</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>LangChain/LangGraph orchestration with pluggable LLM and embedding providers</li>
+                                <li>Production RAG with 14 chunking strategies, hybrid retrieval, and hallucination detection</li>
+                                <li>Multi-turn security pipeline with prompt injection defense and risk-based capability restriction</li>
+                                <li>Streaming responses via SSE and WebSocket with real-time audio transcription</li>
+                                <li>Self-service admin portal for bot lifecycle management and knowledge versioning</li>
+                                <li>Cross-platform frontends: React web, Flutter mobile/desktop</li>
+                            </ul>
+                            <div class="mt-2">
+                                <span class="detail-tag">Python</span>
+                                <span class="detail-tag">LangChain</span>
+                                <span class="detail-tag">FastAPI</span>
+                                <span class="detail-tag">React</span>
+                                <span class="detail-tag">Flutter</span>
+                            </div>
+                            <a class="section-link" onclick="showSection('featured-projects', this)">View project &rarr;</a>
+                        </div>
+                     with LLM orchestration, production RAG, multi-turn security, and cross-platform frontends</li>
+                    <li>MCP meta-tooling: servers that scaffold, build, and publish new <a class="section-link" onclick="showSection('featured-projects', this)">MCP server projects</a> from templates</li>
+                    <li><span class="exp-toggle">Knowledge base platforms</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>Hierarchical document organization with tagging and audit logging</li>
+                                <li>Semantic search via vector embeddings with dynamic Qdrant container management</li>
+                                <li>Conversational RAG interface for natural language queries</li>
+                                <li>Admin dashboard with file upload and version management</li>
+                            </ul>
+                            <div class="mt-2">
+                                <span class="detail-tag">.NET 9</span>
+                                <span class="detail-tag">Python</span>
+                                <span class="detail-tag">Qdrant</span>
+                                <span class="detail-tag">React</span>
+                            </div>
+                            <a class="section-link" onclick="showSection('featured-projects', this)">View project &rarr;</a>
+                        </div>
+                     with semantic search, hierarchical document management, and conversational RAG interfaces</li>
+                    <li><a class="section-link" onclick="showSection('featured-projects', this)">Azure DevOps integration</a> tools exposing DevOps operations as AI-callable MCP tools</li>
                 </ul>
 
                 <h3 class="text-xl font-bold mb-3 text-sky-400">Technical Foundation</h3>
-                <div class="grid md:grid-cols-2 gap-x-8 gap-y-2 mb-6 text-lg">
-                    <div><strong class="text-white">Languages:</strong> C# (.NET 9), Python (FastAPI, Pydantic), TypeScript/React, Dart/Flutter</div>
-                    <div><strong class="text-white">Architecture:</strong> iDesign Methodology (trained by Juval L&ouml;wy), Clean Architecture, DDD</div>
-                    <div><strong class="text-white">AI/ML:</strong> LangChain, LangGraph, LLM orchestration, RAG pipelines, vector embeddings, prompt engineering</div>
-                    <div><strong class="text-white">Infrastructure:</strong> Docker, Azure, multi-protocol APIs, distributed systems</div>
+                <div class="grid md:grid-cols-2 gap-x-8 gap-y-3 mb-6 text-lg">
+                    <div><strong class="text-white">Languages:</strong> <span class="exp-toggle">C# (.NET 9), Python, TypeScript/React, Dart/Flutter</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li><strong>C# / .NET 9</strong> — Primary. High-performance services, MCP frameworks, enterprise backend systems</li>
+                                <li><strong>Python</strong> — Primary. LangChain, LangGraph, FastAPI, Pydantic, AI/ML pipelines</li>
+                                <li><strong>TypeScript / React</strong> — Strong. Modern frontends, real-time chat interfaces, admin dashboards</li>
+                                <li><strong>Dart / Flutter</strong> — Strong. Cross-platform mobile and desktop applications</li>
+                                <li><strong>SQL</strong> — Strong. T-SQL, complex schemas, query optimization</li>
+                                <li><strong>C++</strong> — Experienced. Performance-critical and security applications</li>
+                                <li><strong>Legacy</strong> — COBOL, Delphi, Visual Basic</li>
+                            </ul>
+                            <a class="section-link" onclick="showSection('skills-languages', this)">View all languages &rarr;</a>
+                        </div>
+                    </div>
+                    <div><strong class="text-white">Architecture:</strong> <span class="exp-toggle"><a href="https://idesign.net/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">iDesign</a> Methodology</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>iDesign methodology with strict layered dependency direction</li>
+                                <li>Protocol-based dependency inversion and composition over inheritance</li>
+                                <li>Domain-Driven Design with bounded contexts</li>
+                                <li>Strategy, Factory, Pipeline, Registry, and Adapter patterns</li>
+                                <li>Microservices and event-driven architecture</li>
+                            </ul>
+                            <a class="section-link" onclick="showSection('skills-concepts', this)">View all concepts &rarr;</a>
+                        </div>
+                     (trained by <a href="https://about.me/juval.lowy" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">Juval L&ouml;wy</a>), Clean Architecture, DDD</div>
+                    <div><strong class="text-white">AI/ML:</strong> LangChain, LangGraph, <span class="exp-toggle">RAG pipelines</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>LLM orchestration with multi-provider routing and streaming</li>
+                                <li>RAG: 14 chunking strategies, hybrid retrieval, RAPTOR, RRF fusion, HyDE</li>
+                                <li>Agentic patterns: ReAct, Plan-Execute, Adaptive planning, tool calling</li>
+                                <li>Security: prompt injection defense, canary tokens, risk scoring, spotlighting</li>
+                                <li>Vector databases: FAISS, Qdrant, Pinecone, Chroma, Weaviate</li>
+                                <li>Multi-agent orchestration with recursive depth control</li>
+                            </ul>
+                            <a class="section-link" onclick="showSection('skills-frameworks', this)">View all frameworks &rarr;</a>
+                        </div>
+                    , multi-agent orchestration, prompt engineering</div>
+                    <div><strong class="text-white">Infrastructure:</strong> Docker, Azure, <span class="exp-toggle">multi-protocol APIs</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>Docker and Docker Compose for containerized deployments</li>
+                                <li>Azure cloud infrastructure and Azure AD authentication</li>
+                                <li>Multi-protocol backends: gRPC, SignalR, SSE, Streamable HTTP, WebSocket, REST</li>
+                                <li>OpenTelemetry + Elasticsearch observability with structured logging</li>
+                                <li>CI/CD pipelines, cross-platform deployment (Linux, Mac, Windows)</li>
+                            </ul>
+                            <a class="section-link" onclick="showSection('skills-frameworks', this)">View all frameworks &rarr;</a>
+                        </div>
+                    , OpenTelemetry</div>
                 </div>
 
                 <h3 class="text-xl font-bold mb-3 text-sky-400">What I Believe In</h3>
@@ -370,13 +507,154 @@
                 <h2 class="text-3xl font-bold mb-2">Senior AI/Platform Engineer</h2>
                 <h3 class="text-xl font-semibold mb-1 text-sky-400"><a href="https://www.tihsa.co.za/" target="_blank" rel="noopener noreferrer" class="hover:underline">Telesure Investment Holdings (TIH)</a> | Aug 2025 - Present</h3>
                 <p class="text-sm text-gray-500 mb-4">Contractor via <a href="https://www.dotcomsoftware.co.za/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">DotCom Software Solutions</a></p>
-                <ul class="list-disc list-outside pl-5 space-y-3">
-                    <li>Designing and building production AI platforms powering enterprise LLM integrations across the organization.</li>
-                    <li>Architecting a production MCP (Model Context Protocol) server framework for .NET 9 with multi-transport support, session management, and automatic tool discovery.</li>
-                    <li>Developing agentic chatbot systems with LangChain/LangGraph orchestration, pluggable LLM providers, and RAG pipelines across multiple vector store backends.</li>
-                    <li>Building knowledge base platforms with semantic search, document management, and conversational RAG interfaces.</li>
-                    <li>Creating MCP meta-tooling that scaffolds, builds, and publishes new MCP server projects from templates.</li>
-                    <li>Leading technical architecture decisions and mentoring team members on AI/ML best practices.</li>
+                <ul class="list-disc list-outside pl-5 space-y-4">
+                    <li>Architected a multi-project <span class="exp-toggle">agentic AI platform</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>Layered architecture: reusable framework library, chatbot service, administration portal, and shared DI infrastructure</li>
+                                <li>Protocol interfaces for all major contracts — gateways, engines, accessors, registries, routers</li>
+                                <li>Topological dependency resolution with circular dependency validation</li>
+                                <li>Strategy, Factory, Pipeline, Registry, and Adapter patterns throughout</li>
+                            </ul>
+                            <div class="mt-2">
+                                <span class="detail-tag">iDesign</span>
+                                <span class="detail-tag">Clean Architecture</span>
+                                <span class="detail-tag">DDD</span>
+                                <span class="detail-tag">SOLID</span>
+                                <span class="detail-tag">Dependency Inversion</span>
+                            </div>
+                        </div>
+                     applying iDesign methodology with strict dependency direction and protocol-based dependency inversion</li>
+                    <li>Designed and built production <span class="exp-toggle">RAG pipelines</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>14 chunking strategies: recursive, semantic, sentence, fixed, markdown, HTML, code, table-aware, hierarchical, contextual, proposition, late, agentic, compression</li>
+                                <li>Hybrid retrieval combining dense vector search with BM25 keyword matching</li>
+                                <li>Score fusion via Reciprocal Rank Fusion (RRF) and weighted strategies</li>
+                                <li>RAPTOR hierarchical summarization for deep context understanding</li>
+                                <li>Trustworthy generation with confidence scoring and hallucination detection</li>
+                                <li>Fluent builder API with presets (Conversational, Production, High-Accuracy, Code Search, Research)</li>
+                                <li>Knowledge versioning with incremental updates and content hashing for change detection</li>
+                            </ul>
+                            <div class="mt-2">
+                                <span class="detail-tag">RAG</span>
+                                <span class="detail-tag">BM25</span>
+                                <span class="detail-tag">RRF</span>
+                                <span class="detail-tag">RAPTOR</span>
+                                <span class="detail-tag">HyDE</span>
+                                <span class="detail-tag">Vector Search</span>
+                            </div>
+                        </div>
+                     with hybrid retrieval, hierarchical summarization, and hallucination detection</li>
+                    <li>Implemented <span class="exp-toggle">agentic planning and orchestration</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>Planning coordinator with 3 strategies: ReAct (iterative reasoning), Plan-Execute (upfront planning), Adaptive (LLM auto-selects based on task complexity)</li>
+                                <li>Tool registry with automatic discovery, execution with retry logic, and canary token support</li>
+                                <li>Multi-model routing by engine type (agentic, planning, reflection, classification)</li>
+                                <li>MCP tool integration for external tool server composition</li>
+                                <li>Vector-backed conversation memory with semantic similarity</li>
+                                <li>Rolling window context management with fallback summarization</li>
+                            </ul>
+                            <div class="mt-2">
+                                <span class="detail-tag">ReAct</span>
+                                <span class="detail-tag">Plan-Execute</span>
+                                <span class="detail-tag">Tool Calling</span>
+                                <span class="detail-tag">MCP</span>
+                                <span class="detail-tag">LangChain</span>
+                                <span class="detail-tag">LangGraph</span>
+                            </div>
+                        </div>
+                     with tool calling, multi-model routing, and conversation memory</li>
+                    <li>Applied enterprise <span class="exp-toggle">security patterns</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>Pluggable security pipeline with scanner adapter registry</li>
+                                <li>Multi-turn attack detection across conversation history</li>
+                                <li>Prompt injection scanning with pattern-based and semantic detection</li>
+                                <li>Risk accumulation and decay model with configurable thresholds</li>
+                                <li>Canary token management for data exfiltration detection</li>
+                                <li>Capability restriction and human escalation at risk thresholds</li>
+                                <li>Tool chain validation to prevent unauthorized operation sequences</li>
+                            </ul>
+                            <div class="mt-2">
+                                <span class="detail-tag">Prompt Injection Defense</span>
+                                <span class="detail-tag">Canary Tokens</span>
+                                <span class="detail-tag">Risk Scoring</span>
+                                <span class="detail-tag">Spotlighting</span>
+                            </div>
+                        </div>
+                    : multi-turn attack detection, prompt injection defense, and risk-based capability restriction</li>
+                    <li>Integrated multiple <span class="exp-toggle">LLM and embedding providers</span>
+                        <div class="exp-detail-content">
+                            <ul>
+                                <li>4 LLM gateway implementations with unified interface: streaming and non-streaming generation</li>
+                                <li>3 embedding gateway implementations with unified embed() contract</li>
+                                <li>Factory pattern for runtime provider selection from configuration</li>
+                                <li>6 vector store integrations with semantic caching layer</li>
+                            </ul>
+                            <div class="mt-2">
+                                <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer"><span class="detail-tag">Anthropic</span></a>
+                                <a href="https://azure.microsoft.com/en-us/products/ai-services/openai-service/" target="_blank" rel="noopener noreferrer"><span class="detail-tag">Azure OpenAI</span></a>
+                                <a href="https://ollama.com/" target="_blank" rel="noopener noreferrer"><span class="detail-tag">Ollama</span></a>
+                                <a href="https://github.com/facebookresearch/faiss" target="_blank" rel="noopener noreferrer"><span class="detail-tag">FAISS</span></a>
+                                <a href="https://qdrant.tech/" target="_blank" rel="noopener noreferrer"><span class="detail-tag">Qdrant</span></a>
+                                <a href="https://www.pinecone.io/" target="_blank" rel="noopener noreferrer"><span class="detail-tag">Pinecone</span></a>
+                                <a href="https://www.trychroma.com/" target="_blank" rel="noopener noreferrer"><span class="detail-tag">Chroma</span></a>
+                                <a href="https://github.com/weaviate/weaviate" target="_blank" rel="noopener noreferrer"><span class="detail-tag">Weaviate</span></a>
+                            </div>
+                        </div>
+                     with factory-based routing and graceful degradation</li>
+                    <li>Built a self-service <span class="exp-toggle">administration portal</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>Multi-step bot creation wizard with real-time validation and SSE progress streaming</li>
+                                    <li>LLM-powered auto-generation of bot personality, system prompt, and greetings from document analysis</li>
+                                    <li>Knowledge base versioning with incremental updates: delta detection, embedding reuse for unchanged content</li>
+                                    <li>Agent deployment management with port allocation and health monitoring</li>
+                                    <li>In-browser chat playground for testing deployed agents</li>
+                                    <li>Dashboard with health status, usage metrics, and error logs</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">React</span>
+                                    <span class="detail-tag">TypeScript</span>
+                                    <span class="detail-tag">FastAPI</span>
+                                    <span class="detail-tag">SSE</span>
+                                    <span class="detail-tag">Vite</span>
+                                </div>
+                    </div> for bot lifecycle management, knowledge versioning, and deployment orchestration</li>
+                    <li>Designed <span class="exp-toggle">observability infrastructure</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>Multi-destination logging: console, file, and Elasticsearch via OpenTelemetry</li>
+                                    <li>Request correlation IDs propagated across service boundaries</li>
+                                    <li>A/B testing framework with experiment/variant management and assignment tracking</li>
+                                    <li>Centralized Elasticsearch + Kibana stack shared across all services</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">OpenTelemetry</span>
+                                    <span class="detail-tag">Elasticsearch</span>
+                                    <span class="detail-tag">Kibana</span>
+                                    <span class="detail-tag">A/B Testing</span>
+                                </div>
+                    </div> with structured logging, correlation IDs, and A/B testing metrics</li>
+                    <li>Built production <span class="exp-toggle">chatbot service</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>SSE and WebSocket streaming for real-time response delivery</li>
+                                    <li>Real-time audio transcription via WebSocket</li>
+                                    <li>Multi-bot routing with hot-reload YAML-based bot discovery</li>
+                                    <li>Side-by-side A/B response comparison for model evaluation</li>
+                                    <li>Conversation persistence with SQLite and rolling window context management</li>
+                                    <li>Multi-provider auth middleware (Azure AD, JWT, API key) with RBAC</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">FastAPI</span>
+                                    <span class="detail-tag">SSE</span>
+                                    <span class="detail-tag">WebSocket</span>
+                                    <span class="detail-tag">React</span>
+                                    <span class="detail-tag">RBAC</span>
+                                    <span class="detail-tag">Docker</span>
+                                </div>
+                    </div> with streaming responses, real-time audio transcription, multi-bot routing, and cross-platform frontends</li>
+                    <li>Leading technical architecture decisions and mentoring team members on AI/ML and clean architecture best practices</li>
                 </ul>
             </div>
         </section>
@@ -387,9 +665,25 @@
                 <h3 class="text-xl font-semibold mb-4 text-sky-400"><a href="https://www.derivco.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">Derivco</a> | Nov 2018 - Jun 2025</h3>
                 <div class="grid md:grid-cols-3 gap-8">
                     <ul class="list-disc list-outside pl-5 space-y-3 md:col-span-2">
-                        <li>Led technical development of internal AI initiative, creating a dynamic prompt generation system that interprets JSON definitions to construct customizable, reusable prompts for OpenAI API integration.</li>
-                        <li>Architected LLM-powered automation tools that reduced SDET workload for test generation and code review workflows.</li>
-                        <li>Applied iDesign architectural methodology to create maintainable, scalable backend systems.</li>
+                        <li>Led technical development of internal AI initiative, creating a <span class="exp-toggle">dynamic prompt generation system</span><div class="exp-detail-content">
+                            <ul>
+                                <li>JSON-based prompt definitions interpreted at runtime for customizable, reusable prompts</li>
+                                <li>Integrated with OpenAI API for automated content generation workflows</li>
+                            </ul>
+                        </div> for OpenAI API integration.</li>
+                        <li>Architected <span class="exp-toggle">LLM-powered automation tools</span><div class="exp-detail-content">
+                            <ul>
+                                <li>Automated test generation reducing SDET manual effort</li>
+                                <li>AI-assisted code review workflows for quality and consistency</li>
+                            </ul>
+                        </div> for SDET and code review workflows.</li>
+                        <li>Applied <span class="exp-toggle">iDesign architectural methodology</span><div class="exp-detail-content">
+                            <ul>
+                                <li>Formal training under <a href="https://about.me/juval.lowy" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">Juval L&ouml;wy</a>, creator of iDesign</li>
+                                <li>Decomposition into Managers, Engines, Resource Accessors, and Utilities</li>
+                                <li>Strict layered dependency direction with protocol-based contracts</li>
+                            </ul>
+                        </div> to create maintainable, scalable backend systems.</li>
                         <li>Led the technical development, release, and maintenance of end-to-end software systems.</li>
                         <li>Drove continuous integration and continuous delivery pipelines.</li>
                         <li>Defined and drove the technical roadmap for multiple software products.</li>
@@ -750,7 +1044,29 @@
                 <div class="space-y-4">
                     <div>
                         <h3 class="text-xl font-semibold text-sky-600">AI/ML Engineering</h3>
-                        <p>LangChain, LangGraph, Model Context Protocol (MCP), Retrieval-Augmented Generation (RAG), LLM Orchestration, Multi-Agent Systems, Vector Databases (Qdrant, FAISS, Pinecone, ChromaDB, Weaviate), Prompt Engineering, Prompt Security, Semantic Search, Embeddings.</p>
+                        <div>LangChain, LangGraph, Model Context Protocol (MCP), <span class="exp-toggle">RAG pipelines</span><div class="exp-detail-content">
+                            <ul>
+                                <li>14 chunking strategies for different document types and retrieval patterns</li>
+                                <li>Hybrid retrieval combining BM25 keyword matching with dense vector search</li>
+                                <li>RAPTOR hierarchical summarization and score fusion (RRF, weighted)</li>
+                                <li>HyDE (Hypothetical Document Embeddings) for semantic intent matching</li>
+                                <li>Trustworthy generation with hallucination detection</li>
+                            </ul>
+                        </div>, <span class="exp-toggle">agentic orchestration</span><div class="exp-detail-content">
+                            <ul>
+                                <li>Planning coordination: ReAct, Plan-Execute, Adaptive strategy selection</li>
+                                <li>Tool calling with retry logic, canary tokens, and automatic discovery</li>
+                                <li>Multi-model routing by engine type (agentic, planning, reflection)</li>
+                                <li>MCP tool integration for external tool server composition</li>
+                            </ul>
+                        </div>, Vector Databases (Qdrant, FAISS, Pinecone, ChromaDB, Weaviate), Prompt Engineering, <span class="exp-toggle">Prompt Security</span><div class="exp-detail-content">
+                            <ul>
+                                <li>Multi-turn attack detection across conversation history</li>
+                                <li>Prompt injection scanning with pattern-based and semantic detection</li>
+                                <li>Risk accumulation/decay with configurable thresholds</li>
+                                <li>Canary tokens, spotlighting, and capability restriction</li>
+                            </ul>
+                        </div>, Semantic Search, Embeddings, A/B Testing.</div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-sky-600">Multi-Protocol Backend Architecture</h3>
@@ -765,20 +1081,30 @@
                         <p>Docker, Docker Compose, Rancher, Azure, CI/CD Pipelines, cross-platform containerized deployments (Linux, Mac, Windows). Driving continuous integration and delivery pipelines using Azure DevOps.</p>
                     </div>
                     <div>
+                        <h3 class="text-xl font-semibold text-sky-600">Observability &amp; Metrics</h3>
+                        <div>OpenTelemetry, Elasticsearch, Kibana, structured logging with correlation IDs, <span class="exp-toggle">A/B testing frameworks</span><div class="exp-detail-content">
+                            <ul>
+                                <li>Experiment and variant management with assignment tracking</li>
+                                <li>Metric collection and analysis for model evaluation</li>
+                                <li>Side-by-side response comparison for provider benchmarking</li>
+                            </ul>
+                        </div>.</div>
+                    </div>
+                    <div>
                         <h3 class="text-xl font-semibold text-sky-600">Testing</h3>
                         <p>xUnit, Vitest, integration testing, architecture testing. Building test generation tools powered by LLMs to reduce QA burden.</p>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <section id="skills-concepts" class="section">
             <div class="content-card p-8">
                 <h2 class="text-3xl font-bold mb-4">Architectural Concepts</h2>
                 <div class="space-y-4">
                     <div>
-                        <h3 class="text-xl font-semibold text-sky-600">iDesign Methodology &amp; Domain-Driven Design (DDD)</h3>
-                        <p>Formally trained in advanced system architecture through Juval L&ouml;wy's prestigious Architect's Master Class. Proficient in applying the iDesign methodology and Domain-Driven Design principles to decompose complex systems into robust, maintainable, and scalable software.</p>
+                        <h3 class="text-xl font-semibold text-sky-600"><a href="https://idesign.net/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">iDesign</a> Methodology &amp; Domain-Driven Design (DDD)</h3>
+                        <p>Formally trained in advanced system architecture through <a href="https://about.me/juval.lowy" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">Juval L&ouml;wy</a>'s prestigious Architect's Master Class. Proficient in applying the iDesign methodology and Domain-Driven Design principles to decompose complex systems into robust, maintainable, and scalable software.</p>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-sky-600">Clean Architecture</h3>
@@ -790,7 +1116,13 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-sky-600">Authentication &amp; Security</h3>
-                        <p>JWT and API key authentication, multi-provider auth integration, and security-first design for AI platform APIs and MCP server frameworks.</p>
+                        <div>JWT and API key authentication, <span class="exp-toggle">multi-provider auth</span><div class="exp-detail-content">
+                            <ul>
+                                <li>Azure AD, JWT, and API key authentication providers</li>
+                                <li>RBAC engine for role-based access control</li>
+                                <li>Token validation and middleware integration</li>
+                            </ul>
+                        </div>, and security-first design for AI platform APIs and MCP server frameworks.</div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-sky-600">Agentic AI Design Patterns</h3>
@@ -818,7 +1150,15 @@
                             <span class="project-label project-label-blue">.NET Framework</span>
                             <h3 class="text-2xl font-bold mb-3">Production MCP Server Framework for .NET 9</h3>
                             <p class="text-gray-400 mb-4">
-                                A Model Context Protocol server framework supporting multiple transport protocols
+                                A <span class="exp-toggle">Model Context Protocol</span>
+                                <div class="exp-detail-content">
+                                    <ul>
+                                        <li><a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">MCP</a> is an open standard for connecting AI agents to external tools and data sources</li>
+                                        <li>Supports bidirectional communication between LLMs and tool servers</li>
+                                        <li>Enables dynamic tool discovery, schema validation, and session management</li>
+                                    </ul>
+                                </div>
+                                server framework supporting multiple transport protocols
                                 with session management, JWT &amp; API key authentication, JSON schema validation,
                                 and automatic tool discovery. Built for enterprise AI agent integrations.
                             </p>
@@ -853,22 +1193,35 @@ graph LR
                             <span class="project-label project-label-green">Full-Stack AI Platform</span>
                             <h3 class="text-2xl font-bold mb-3">Enterprise Agentic Chatbot Framework</h3>
                             <p class="text-gray-400 mb-4">
-                                Full-stack chatbot platform built on LangChain and LangGraph with pluggable LLM
-                                providers, RAG pipelines across multiple vector store backends, streaming responses
-                                via SSE/WebSocket, and React &amp; Flutter frontends. Supports multi-bot routing,
-                                A/B testing, and comprehensive metrics.
+                                Full-stack agentic chatbot platform with a 4-project <span class="exp-toggle">iDesign architecture</span>.<div class="exp-detail-content">
+                                    <ul>
+                                        <li>iDesign is a methodology for decomposing systems into Managers, Engines, Resource Accessors, and Utilities</li>
+                                        <li>Strict dependency direction: Common &larr; Framework &larr; Chatbot/Admin</li>
+                                        <li>Protocol-based contracts for all cross-layer communication</li>
+                                    </ul>
+                                </div> Features production RAG
+                                with <span class="exp-toggle">14 chunking strategies</span>,<div class="exp-detail-content">
+                                    <ul>
+                                        <li>Recursive, semantic, sentence, fixed, markdown, HTML, code, table-aware, hierarchical, contextual, proposition, late, agentic, compression</li>
+                                        <li>Each strategy optimized for different document types and retrieval patterns</li>
+                                    </ul>
+                                </div> planning coordination (ReAct, Plan-Execute, Adaptive), multi-turn
+                                security pipeline, multi-LLM/embedding provider routing, 6 vector store integrations, and
+                                OpenTelemetry observability. React &amp; Flutter frontends with SSE/WebSocket streaming.
                             </p>
                             <pre class="mermaid mb-4">
 graph LR
   Users[Users] --> Frontend[Web + Mobile]
   Frontend -->|Streaming| Backend[Backend API]
   Backend --> LLM[LLM Providers]
-  Backend --> RAG[RAG + Vector Search]
+  Backend --> RAG[RAG Pipeline]
+  Backend --> Security[Security]
   style Users fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
   style Frontend fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
   style Backend fill:#1e293b,stroke:#475569,color:#94a3b8
   style LLM fill:#14332a,stroke:#10b981,color:#6ee7b7
   style RAG fill:#14332a,stroke:#10b981,color:#6ee7b7
+  style Security fill:#14332a,stroke:#10b981,color:#6ee7b7
                             </pre>
                             <div class="flex flex-wrap gap-2 mt-4">
                                 <span class="project-tag project-tag-green">Python</span>
@@ -916,7 +1269,13 @@ graph LR
                             <h3 class="text-2xl font-bold mb-3">AI-Powered Knowledge Base System</h3>
                             <p class="text-gray-400 mb-4">
                                 Production knowledge management platform with hierarchical document organization,
-                                semantic search via vector embeddings, dynamic Qdrant container management, and
+                                <span class="exp-toggle">semantic search</span><div class="exp-detail-content">
+                                    <ul>
+                                        <li>Vector embeddings convert documents into numerical representations</li>
+                                        <li>Similarity search finds conceptually related content, not just keyword matches</li>
+                                        <li>Dynamic Qdrant container management for scalable vector storage</li>
+                                    </ul>
+                                </div> via vector embeddings, and
                                 conversational RAG interface. Includes admin dashboard, file upload, and audit logging.
                             </p>
                             <pre class="mermaid mb-4">
@@ -949,7 +1308,13 @@ graph LR
                             <h3 class="text-2xl font-bold mb-3">Hierarchical Code Review Agent System</h3>
                             <p class="text-gray-400 mb-4">
                                 Multi-agent system for automated code review and fix orchestration. 30 specialized
-                                agents organized hierarchically with recursive depth control, covering backend
+                                agents organized hierarchically with <span class="exp-toggle">recursive depth control</span>,<div class="exp-detail-content">
+                                    <ul>
+                                        <li>Prevents context fragmentation by limiting recursion depth</li>
+                                        <li>Master orchestrator delegates to specialized reviewers and fix agents</li>
+                                        <li>Each agent has a bounded scope and reports findings upward</li>
+                                    </ul>
+                                </div> covering backend
                                 (C#, Java, Python, Go, Node.js, Ruby, Rust, PHP) and frontend (React, Vue, Angular,
                                 Svelte) quality analysis, security, accessibility, and automated fixes.
                             </p>
@@ -970,6 +1335,39 @@ graph LR
                                 <span class="project-tag project-tag-rose">Claude Sonnet</span>
                                 <span class="project-tag project-tag-rose">Agent Orchestration</span>
                                 <span class="project-tag project-tag-rose">iDesign</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Administration Portal -->
+                    <div class="project-card">
+                        <div class="project-card-accent project-card-accent-blue"></div>
+                        <div class="project-card-body">
+                            <span class="project-label project-label-blue">Bot Management Platform</span>
+                            <h3 class="text-2xl font-bold mb-3">Enterprise Agentic Administration Portal</h3>
+                            <p class="text-gray-400 mb-4">
+                                Self-service admin portal for creating, configuring, and managing chatbot agents. Features
+                                a multi-step bot creation wizard with LLM-powered metadata generation, knowledge base
+                                versioning with incremental updates, agent deployment management, and monitoring dashboard.
+                            </p>
+                            <pre class="mermaid mb-4">
+graph LR
+  Admin[Admin] --> Wizard[Bot Wizard]
+  Wizard --> Knowledge[Knowledge Versioning]
+  Wizard --> Deploy[Agent Deployment]
+  Admin --> Monitor[Monitoring]
+  style Admin fill:#1e3a5f,stroke:#3b82f6,color:#93c5fd
+  style Wizard fill:#1e293b,stroke:#475569,color:#94a3b8
+  style Knowledge fill:#172554,stroke:#3b82f6,color:#93c5fd
+  style Deploy fill:#172554,stroke:#3b82f6,color:#93c5fd
+  style Monitor fill:#172554,stroke:#3b82f6,color:#93c5fd
+                            </pre>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="project-tag project-tag-blue">Python</span>
+                                <span class="project-tag project-tag-blue">FastAPI</span>
+                                <span class="project-tag project-tag-blue">React</span>
+                                <span class="project-tag project-tag-blue">TypeScript</span>
+                                <span class="project-tag project-tag-blue">Vite</span>
                             </div>
                         </div>
                     </div>
@@ -1104,8 +1502,6 @@ graph LR
 
     </main>
 
-    <script src="js/neuralbackground.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/chatbot.js" defer></script>
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>

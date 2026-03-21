@@ -1,4 +1,4 @@
-import { searchKnowledge, getProjectDetails, getExperience, getSkillsByCategory, getPortfolioInfo } from "./knowledge.mjs";
+import { searchKnowledge, getProjectDetails, getExperience, getSkillsByCategory, getPortfolioInfo } from "./knowledge/index.mjs";
 import { createRagPipeline } from "./rag-pipeline.mjs";
 
 const TOOLS = [
