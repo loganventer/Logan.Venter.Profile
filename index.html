@@ -212,7 +212,7 @@
                 </svg>
                 <span class="site-brand">
                     <span>Logan Venter</span>
-                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.5, updated 9 Oct 2026</span>
+                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.6, updated 9 Oct 2026</span>
                 </span>
             </a>
             <div class="desktop-nav hidden lg:flex items-center space-x-4">
@@ -315,7 +315,7 @@
             <a href="assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf" download="Logan Venter Curriculum Vitae 09-10-2026.pdf" class="mt-8 inline-flex items-center justify-center btn-primary text-white font-bold py-3 px-5 rounded-lg whitespace-nowrap">
                 <i class="fas fa-download mr-2"></i>Download CV
             </a>
-            <p class="site-version site-version-mobile">v1.7.5, updated 9 Oct 2026</p>
+            <p class="site-version site-version-mobile">v1.7.6, updated 9 Oct 2026</p>
         </div>
     </div>
 
@@ -737,44 +737,147 @@
                                     <span class="detail-tag">Docker</span>
                                 </div>
                     </div> with streaming responses, real-time audio transcription, multi-bot routing, and an embeddable React chat widget</li>
-                    <li>Built <span class="exp-toggle">multi-agent systems</span><div class="exp-detail-content">
+                    <li>Built multi-agent systems on the A2A protocol: <span class="exp-toggle">code and documentation review agents</span><div class="exp-detail-content">
                                 <ul>
-                                    <li>Code and documentation review agents running up to 37 specialised reviewers in parallel, with adjudication and static analysis verification</li>
-                                    <li>An agent that builds agents: a typed twelve-phase pipeline with 27 MCP tools, 838 tests and 98% coverage</li>
-                                    <li>A planner and proof gate that re-runs each step's acceptance checks in its own sandbox</li>
-                                    <li>A use-case triage system and an SDLC document pipeline that cites every statement it renders</li>
-                                    <li>A terminal AI coding assistant with permission-gated tools, memory and a VS Code extension host</li>
+                                    <li>Three review intensities, running 9, 27 or 37 specialised reviewers in parallel over a pull request</li>
+                                    <li>77 agent specifications covering 8 backend languages, 4 frontend frameworks and the OWASP Top 10 CI/CD Security Risks</li>
+                                    <li>Six-step pipeline: trigger, review, decide, verify, deduplicate, publish, with validators iterating to convergence</li>
+                                    <li>Findings corroborated by static analysis and reachability into a composite confidence score</li>
+                                    <li>A sibling system reviews documentation against the source code it describes, across four dimensions</li>
+                                    <li>Model profiles (fast, standard, deep) that decouple agent specifications from vendor models</li>
                                 </ul>
                                 <div class="mt-2">
+                                    <span class="detail-tag">Python</span>
+                                    <span class="detail-tag">C#</span>
+                                    <span class="detail-tag">MCP</span>
+                                    <span class="detail-tag">A2A</span>
+                                    <span class="detail-tag">BM25 RAG</span>
+                                </div>
+                    </div>, an <span class="exp-toggle">agent that builds agents</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>Turns a natural-language specification into a standalone, containerised Python agent project</li>
+                                    <li>A typed twelve-phase pipeline with 27 MCP tools, 4 guard layers and 6 archetype tiers</li>
+                                    <li>The model supplies typed structured output and the server renders the source, so it never free-writes code that has to compile</li>
+                                    <li>Phase executors verify completion claims against validators and make retries idempotent</li>
+                                    <li>838 tests at 98% coverage</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">Python</span>
+                                    <span class="detail-tag">FastAPI</span>
+                                    <span class="detail-tag">.NET</span>
+                                    <span class="detail-tag">MCP</span>
+                                    <span class="detail-tag">JSON Schema</span>
+                                </div>
+                    </div>, a <span class="exp-toggle">planner and proof gate</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>A calling agent asks for a plan, does a step, and submits its work as a patch</li>
+                                    <li>The service rebuilds the workspace in its own sandbox and re-runs the acceptance checks, including hidden ones</li>
+                                    <li>No API call lets the caller mark its own work done, an invariant asserted by a test</li>
+                                    <li>Ten agents: a supervisor with a state machine, a planning orchestrator running four lenses, a plan reviewer, a proof adjudicator and a blind completion auditor</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">Python</span>
+                                    <span class="detail-tag">A2A</span>
+                                    <span class="detail-tag">.NET 10</span>
+                                    <span class="detail-tag">MCP C# SDK</span>
+                                </div>
+                    </div>, and a <span class="exp-toggle">use-case triage and SDLC document pipeline</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>19 triage agents assess a proposed AI use case for data sensitivity, reuse and build effort, and return one grounded verdict</li>
+                                    <li>Orchestration is deterministic code, and LLM judgement lives only in the specialists and the synthesiser</li>
+                                    <li>A golden-set regression suite of ideas with known verdicts, and refusal on low confidence</li>
+                                    <li>15 document agents turn an approved verdict into six SDLC documents, each mapping every statement to its source</li>
+                                    <li>Word documents rendered by filling an existing template through Open XML</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">Python</span>
                                     <span class="detail-tag">A2A</span>
                                     <span class="detail-tag">MCP</span>
-                                    <span class="detail-tag">Python</span>
-                                    <span class="detail-tag">iDesign</span>
+                                    <span class="detail-tag">FAISS</span>
+                                    <span class="detail-tag">Open XML</span>
                                 </div>
-                    </div> on the A2A protocol for code review, agent generation, planning with proof, and document pipelines</li>
+                    </div></li>
+                    <li>Built a <span class="exp-toggle">terminal AI coding assistant</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>Full-screen terminal interface with 10 built-in tools for files, shell, search, git and the web</li>
+                                    <li>Permission gate with allow, deny, always and never decisions and a diff preview</li>
+                                    <li>Persistent project memory, planning, and session save, resume and rewind</li>
+                                    <li>Registers MCP tool servers and delegates to other agents over A2A, as both client and server</li>
+                                    <li>Runs headless behind a VS Code extension, with a composition test for each entry point</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">Python</span>
+                                    <span class="detail-tag">prompt_toolkit</span>
+                                    <span class="detail-tag">MCP</span>
+                                    <span class="detail-tag">A2A</span>
+                                    <span class="detail-tag">VS Code extension</span>
+                                </div>
+                    </div> with permission-gated tools, persistent memory, and agent-to-agent delegation</li>
                     <li>Built a suite of <span class="exp-toggle">MCP servers</span><div class="exp-detail-content">
                                 <ul>
                                     <li>Azure DevOps: 74 typed tools, rebuilt on .NET 10 and the official MCP C# SDK with an 80% coverage gate</li>
-                                    <li>Microsoft Teams and Microsoft To Do through Microsoft Graph, with human approval for writes</li>
-                                    <li>Databricks: roughly 171 tools split into read, write and admin servers</li>
-                                    <li>Toggl Track: 79 tools. Web research: several providers merged by reciprocal rank fusion behind an SSRF guard</li>
-                                    <li>Authored an MCP server framework for .NET, then led its retirement in favour of the official SDK</li>
-                                    <li>Shared Microsoft Entra sign-in libraries with ten credential strategies and a coalescing token refresh service</li>
+                                    <li>Microsoft Teams: about 70 tools through Microsoft Graph, in six layers enforced at compile time</li>
+                                    <li>Microsoft To Do: delegated sign-in and name-based list resolution, with 116 offline tests</li>
+                                    <li>Databricks: roughly 171 tools across 13 areas, split into read, write and admin servers</li>
+                                    <li>Toggl Track: 79 tools covering timers, projects, tasks, reports and insights</li>
+                                    <li>Web research: several search providers merged by reciprocal rank fusion behind an SSRF guard and a site allow-list</li>
                                 </ul>
                                 <div class="mt-2">
                                     <span class="detail-tag">.NET 10</span>
                                     <span class="detail-tag">C#</span>
                                     <span class="detail-tag">MCP C# SDK</span>
                                     <span class="detail-tag">Microsoft Graph</span>
-                                    <span class="detail-tag">Microsoft Entra</span>
                                 </div>
-                    </div> giving AI agents typed, authenticated access to DevOps, collaboration, data and research platforms</li>
+                    </div> giving AI agents typed, authenticated access to DevOps, collaboration, data and research platforms, with <span class="exp-toggle">human approval for writes</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>Approval runs through MCP elicitation, so the model cannot approve its own actions</li>
+                                    <li>Destructive writes take two confirmations</li>
+                                    <li>Three access levels: read by default, then send, then manage</li>
+                                    <li>Third-party text is fenced between marker lines and labelled as untrusted</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">Human-in-the-loop</span>
+                                    <span class="detail-tag">Prompt Injection Defense</span>
+                                </div>
+                    </div> and shared <span class="exp-toggle">Microsoft Entra sign-in libraries</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>Three layered .NET libraries: core authentication, Microsoft Graph, and MCP sign-in tools</li>
+                                    <li>Ten credential strategies, with the catch-all default credential deliberately left out in favour of an explicit chain</li>
+                                    <li>A token refresh service that coalesces concurrent renewals into one and serves the cached token through transient failures</li>
+                                    <li>Start-up validation of every setting, and no silent plaintext token cache</li>
+                                    <li>An 80% coverage gate with warnings as errors</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">.NET</span>
+                                    <span class="detail-tag">Azure.Identity</span>
+                                    <span class="detail-tag">Microsoft Graph</span>
+                                    <span class="detail-tag">MCP</span>
+                                </div>
+                    </div></li>
+                    <li>Authored an <span class="exp-toggle">MCP server framework</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>Built before an official SDK matured: 5 transports (stdio, REST, Streamable HTTP, SignalR, gRPC)</li>
+                                    <li>Attribute-based tool registration, JSON Schema validation, and per-request API key and JWT authentication</li>
+                                    <li>Rate limiting with 3 strategies, a circuit breaker and caching</li>
+                                    <li>Adopted by other engineers to build servers over line-of-business systems</li>
+                                    <li>Now discontinued: the official C# MCP SDK replaced it, with a documented migration path</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">.NET 9</span>
+                                    <span class="detail-tag">C#</span>
+                                    <span class="detail-tag">gRPC</span>
+                                    <span class="detail-tag">SignalR</span>
+                                    <span class="detail-tag">Polly</span>
+                                </div>
+                    </div> for .NET, then led its retirement in favour of the official C# MCP SDK and migrated the servers to .NET 10</li>
                     <li>Designed and built a <span class="exp-toggle">governed AI gateway</span><div class="exp-detail-content">
                                 <ul>
                                     <li>Chat, embeddings, images, speech, document reading, OCR and retrieval behind one API</li>
                                     <li>Identity, role-based permissions, per-application budgets, usage metering and a request audit</li>
-                                    <li>Six iDesign layers enforced by the compiler, with a stored-procedure-only data layer</li>
-                                    <li>Exactly-once settlement of streamed responses</li>
+                                    <li>A governance pipeline that checks permission and then budget before any model call</li>
+                                    <li>Six iDesign layers enforced by the compiler, with a stored-procedure-only data layer guarded by a convention test</li>
+                                    <li>Exactly-once settlement of streamed responses, with one code path for streamed and buffered calls</li>
+                                    <li>Failover across named model connections, and a job queue with a background worker for deferred work</li>
                                 </ul>
                                 <div class="mt-2">
                                     <span class="detail-tag">.NET 10</span>
@@ -783,9 +886,48 @@
                                     <span class="detail-tag">OpenTelemetry</span>
                                 </div>
                     </div> on .NET 10 with per-application permissions, budgets, metering and audit</li>
-                    <li>Architected and designed an agentic knowledge ingestion and curation pipeline: an orchestrator and four single-purpose agents keep assistant knowledge bases current, with a fail-closed sensitive-data gate and human review through pull requests</li>
-                    <li>Ran an automated CI/CD control review across more than 1,000 repositories against 17 fixed checks, attributing every finding to its origin</li>
-                    <li>Wrote the developer onboarding course for the framework: an eight-chapter guide with test-graded exercises</li>
+                    <li>Architected and designed an <span class="exp-toggle">agentic knowledge ingestion and curation pipeline</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>An orchestrator runs every mechanical stage in process and calls four single-purpose agents over A2A</li>
+                                    <li>Agents are definitions and not code: a card, a system prompt and a template in a folder</li>
+                                    <li>Reviewable text and the built index go to different places, tied together by one committed pointer</li>
+                                    <li>A fail-closed sensitive-data gate runs before indexing, and index files are verified before they are opened</li>
+                                    <li>A new assistant is purely a configuration file, with no per-assistant code</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">Python</span>
+                                    <span class="detail-tag">A2A</span>
+                                    <span class="detail-tag">RAG</span>
+                                    <span class="detail-tag">Config as Code</span>
+                                </div>
+                    </div> that keeps assistant knowledge bases current, with human review through pull requests</li>
+                    <li>Ran an <span class="exp-toggle">automated CI/CD control review</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>49 projects and 1,081 repositories reviewed against 17 fixed checks</li>
+                                    <li>Build definitions, pipeline YAML, branch policies and build timelines read through the REST API</li>
+                                    <li>Shared pipeline templates resolved across repository boundaries, with conditions evaluated</li>
+                                    <li>Every finding attributed to its origin: a shared template, a repository override, or the repository itself</li>
+                                    <li>Per-repository reports, project and estate roll-ups, and a steering committee briefing</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">Azure DevOps REST API</span>
+                                    <span class="detail-tag">YAML pipelines</span>
+                                    <span class="detail-tag">DevSecOps</span>
+                                </div>
+                    </div> across more than 1,000 repositories, attributing every finding to its origin</li>
+                    <li>Wrote the <span class="exp-toggle">developer onboarding course</span><div class="exp-detail-content">
+                                <ul>
+                                    <li>An eight-chapter guide to the framework, with a runnable playground</li>
+                                    <li>Two worked examples and six exercises: security, memory, MCP tools, planning, streaming, and a composed agent</li>
+                                    <li>Each exercise is a stub plus the tests that define done</li>
+                                    <li>One CI step per exercise, so the build reads as a checklist, with an 80% coverage floor</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="detail-tag">Python</span>
+                                    <span class="detail-tag">pytest</span>
+                                    <span class="detail-tag">CI</span>
+                                </div>
+                    </div> for the framework, with test-graded exercises</li>
                     <li>Leading technical architecture decisions and mentoring team members on AI/ML and clean architecture best practices</li>
                 </ul>
             </div>
