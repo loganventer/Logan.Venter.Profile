@@ -20,7 +20,7 @@ export const experience = [
       "Authored an MCP server framework for .NET (now discontinued), then led its retirement in favour of the official C# MCP SDK and migrated the servers to .NET 10",
       "Designed and built a governed AI gateway on .NET 10 with per-application permissions, budgets, usage metering and audit",
       "Built shared Microsoft Entra authentication libraries with ten credential strategies and a coalescing token refresh service",
-      "Architected and designed a scheduled knowledge ingestion and curation pipeline that keeps assistant knowledge bases current, with a fail-closed sensitive-data gate and human review through pull requests",
+      "Architected and designed an agentic knowledge ingestion and curation pipeline: an orchestrator and four single-purpose agents keep assistant knowledge bases current, with a fail-closed sensitive-data gate and human review through pull requests",
       "Ran an automated CI/CD control review across more than 1,000 repositories against 17 fixed checks",
       "Designed observability infrastructure with structured logging, correlation IDs, and A/B testing metrics",
       "Wrote the developer onboarding course for the framework: an eight-chapter guide with test-graded exercises",
