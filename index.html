@@ -75,13 +75,10 @@
             });
 
             // Render mermaid diagrams when their section becomes visible
-            var mermaidRendered = false;
             var origShowSection = null;
-            function tryRenderMermaid() {
-                if (mermaidRendered) return;
-                var diagrams = document.querySelectorAll('pre.mermaid:not([data-processed])');
+            function tryRenderMermaid(sectionId) {
+                var diagrams = document.querySelectorAll('#' + sectionId + ' pre.mermaid:not([data-processed])');
                 if (diagrams.length > 0) {
-                    mermaidRendered = true;
                     mermaid.run({ nodes: diagrams }).then(function() {
                         if (typeof window.updateMermaidTheme === 'function') {
                             var theme = document.documentElement.getAttribute('data-theme') || 'dark';
@@ -90,14 +87,23 @@
                     });
                 }
             }
+            // Show a section, then scroll to one project card inside it
+            window.showProject = function(sectionId, cardId, element) {
+                window.showSection(sectionId, element);
+                setTimeout(function() {
+                    var card = document.getElementById(cardId);
+                    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 250);
+            };
+
             // Hook into showSection after it's defined
             var waitForShow = setInterval(function() {
                 if (window.showSection && !origShowSection) {
                     origShowSection = window.showSection;
                     window.showSection = function(sectionId, element) {
                         origShowSection(sectionId, element);
-                        if (sectionId === 'featured-projects') {
-                            setTimeout(tryRenderMermaid, 100);
+                        if (sectionId === 'featured-projects' || sectionId === 'open-source') {
+                            setTimeout(function() { tryRenderMermaid(sectionId); }, 100);
                         }
                     };
                     clearInterval(waitForShow);
@@ -206,10 +212,10 @@
                 </svg>
                 <span class="site-brand">
                     <span>Logan Venter</span>
-                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.0, updated 9 Oct 2026</span>
+                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.1, updated 9 Oct 2026</span>
                 </span>
             </a>
-            <div class="hidden lg:flex items-center space-x-4">
+            <div class="desktop-nav hidden lg:flex items-center space-x-4">
                 <a href="#" class="nav-item nav-item-active" onclick="showSection('about', this)">About</a>
                 <div class="dropdown relative">
                     <button class="nav-item" aria-haspopup="true" aria-expanded="false">Experience <i class="fas fa-chevron-down fa-xs"></i></button>
@@ -242,6 +248,14 @@
                         <a href="#" onclick="showSection('skills-languages', this)">Languages</a>
                         <a href="#" onclick="showSection('skills-frameworks', this)">Frameworks &amp; Methodologies</a>
                         <a href="#" onclick="showSection('skills-concepts', this)">Architectural Concepts</a>
+                    </div>
+                </div>
+                <div class="dropdown relative">
+                    <button class="nav-item" aria-haspopup="true" aria-expanded="false">Open Source <i class="fas fa-chevron-down fa-xs"></i></button>
+                    <div class="dropdown-content" role="menu">
+                        <a href="#" onclick="showProject('open-source', 'os-tawk', this)">tawk | WhatsApp client</a>
+                        <a href="#" onclick="showProject('open-source', 'os-tawk-mcp', this)">tawk-mcp | MCP server</a>
+                        <a href="#" onclick="showProject('open-source', 'os-matrix-clock', this)">matrix-clock | Terminal clock</a>
                     </div>
                 </div>
                 <div class="dropdown relative">
@@ -300,6 +314,11 @@
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('skills-frameworks', this); toggleMobileMenu();">Frameworks &amp; Methodologies</a>
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('skills-concepts', this); toggleMobileMenu();">Architectural Concepts</a>
             
+            <h3 class="text-gray-400 mt-6 mb-2 font-bold">Open Source</h3>
+            <a href="#" class="block py-2 text-white text-lg" onclick="showProject('open-source', 'os-tawk', this); toggleMobileMenu();">tawk</a>
+            <a href="#" class="block py-2 text-white text-lg" onclick="showProject('open-source', 'os-tawk-mcp', this); toggleMobileMenu();">tawk-mcp</a>
+            <a href="#" class="block py-2 text-white text-lg" onclick="showProject('open-source', 'os-matrix-clock', this); toggleMobileMenu();">matrix-clock</a>
+
             <h3 class="text-gray-400 mt-6 mb-2 font-bold">Projects</h3>
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('featured-projects', this); toggleMobileMenu();">Featured Projects</a>
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('personal-interests', this); toggleMobileMenu();">Personal Interests</a>
@@ -307,7 +326,7 @@
             <a href="assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf" download="Logan Venter Curriculum Vitae 09-10-2026.pdf" class="mt-8 inline-flex items-center justify-center btn-primary text-white font-bold py-3 px-5 rounded-lg whitespace-nowrap">
                 <i class="fas fa-download mr-2"></i>Download CV
             </a>
-            <p class="site-version site-version-mobile">v1.7.0, updated 9 Oct 2026</p>
+            <p class="site-version site-version-mobile">v1.7.1, updated 9 Oct 2026</p>
         </div>
     </div>
 
@@ -385,7 +404,7 @@
                                 <span class="detail-tag">SQLite</span>
                                 <span class="detail-tag">Open Source</span>
                             </div>
-                            <a href="#" class="section-link" onclick="event.preventDefault(); showSection('featured-projects', this)">View project &rarr;</a>
+                            <a href="#" class="section-link" onclick="event.preventDefault(); showProject('open-source', 'os-tawk', this)">View project &rarr;</a>
                         </div>
                     , an open source <a href="https://github.com/loganventer/tawk" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">WhatsApp client for the terminal</a>, and <span class="exp-toggle">tawk-mcp</span>
                         <div class="exp-detail-content">
@@ -401,7 +420,7 @@
                                 <span class="detail-tag">MCP</span>
                                 <span class="detail-tag">Open Source</span>
                             </div>
-                            <a href="#" class="section-link" onclick="event.preventDefault(); showSection('featured-projects', this)">View project &rarr;</a>
+                            <a href="#" class="section-link" onclick="event.preventDefault(); showProject('open-source', 'os-tawk-mcp', this)">View project &rarr;</a>
                         </div>
                     , its <a href="https://github.com/loganventer/tawk-mcp" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">MCP server</a> with human approval built in</li>
                     <li><span class="exp-toggle">Agentic AI framework</span>
@@ -1542,16 +1561,15 @@
             </div>
         </section>
 
-        <section id="featured-projects" class="section">
+        <section id="open-source" class="section">
             <div class="content-card p-8">
-                <h2 class="text-3xl font-bold mb-2">Featured Projects</h2>
-                <p class="text-lg mb-8 text-gray-400">Open source work I am proud of, and highlights from my recent platform and AI engineering.</p>
+                <h2 class="text-3xl font-bold mb-2">Open Source</h2>
+                <p class="text-lg mb-8 text-gray-400">Software I build in the open and am proud of. The code is on GitHub.</p>
 
-                <h3 class="project-group-title">Open Source</h3>
-                <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="grid md:grid-cols-2 gap-8">
 
                     <!-- tawk: WhatsApp in the Terminal -->
-                    <div class="project-card">
+                    <div class="project-card" id="os-tawk">
                         <div class="project-card-accent project-card-accent-green"></div>
                         <div class="project-card-body">
                             <span class="project-label project-label-green">Open Source</span>
@@ -1580,7 +1598,7 @@
                     </div>
 
                     <!-- tawk-mcp: MCP Server for tawk -->
-                    <div class="project-card">
+                    <div class="project-card" id="os-tawk-mcp">
                         <div class="project-card-accent project-card-accent-blue"></div>
                         <div class="project-card-body">
                             <span class="project-label project-label-blue">Open Source</span>
@@ -1620,7 +1638,7 @@ graph LR
                     </div>
 
                     <!-- matrix-clock: Terminal Clock in Digital Rain -->
-                    <div class="project-card">
+                    <div class="project-card" id="os-matrix-clock">
                         <div class="project-card-accent project-card-accent-purple"></div>
                         <div class="project-card-body">
                             <span class="project-label project-label-purple">Open Source</span>
@@ -1644,8 +1662,14 @@ graph LR
                     </div>
 
                 </div>
+            </div>
+        </section>
 
-                <h3 class="project-group-title">Platform and AI Engineering</h3>
+        <section id="featured-projects" class="section">
+            <div class="content-card p-8">
+                <h2 class="text-3xl font-bold mb-2">Featured Projects</h2>
+                <p class="text-lg mb-8 text-gray-400">Highlights from my recent platform and AI engineering work.</p>
+
                 <div class="grid md:grid-cols-2 gap-8">
 
                     <!-- Agentic AI Framework for Python and .NET -->
@@ -2114,7 +2138,7 @@ graph LR
 
                 <h3 class="text-2xl font-bold mb-3 text-sky-400">Tech Innovations</h3>
                 <ul class="list-disc list-outside pl-5 space-y-3 mb-6">
-                    <li>Builds open source terminal software: <a href="https://github.com/loganventer/tawk" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">tawk</a>, a WhatsApp client for the terminal, <a href="https://github.com/loganventer/tawk-mcp" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">tawk-mcp</a>, its MCP server, and matrix-clock, a digital rain clock. <a href="#" class="section-link" onclick="event.preventDefault(); showSection('featured-projects', this)">View projects &rarr;</a></li>
+                    <li>Builds open source terminal software: <a href="https://github.com/loganventer/tawk" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">tawk</a>, a WhatsApp client for the terminal, <a href="https://github.com/loganventer/tawk-mcp" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">tawk-mcp</a>, its MCP server, and matrix-clock, a digital rain clock. <a href="#" class="section-link" onclick="event.preventDefault(); showSection('open-source', this)">View projects &rarr;</a></li>
                     <li>Developed a mobile game for the Windows phone store which received 8000 downloads.</li>
                     <li>Developed another Windows phone app for the Eskom load shedding situation, monitoring grid status and notifying users of changes, which received 1200 downloads in two weeks.</li>
                     <li>Built a backlight for his television which changes color according to the average perceived pixel color, greatly improving the viewing ambience.</li>

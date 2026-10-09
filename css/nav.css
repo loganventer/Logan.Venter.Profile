@@ -114,3 +114,29 @@
     margin-top: 1.5rem;
     font-size: 12px;
 }
+
+/* Keep the desktop menu on one line */
+.desktop-nav .nav-item,
+.site-brand > span:first-child {
+    white-space: nowrap;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .header nav {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .header nav > a {
+        font-size: 1.25rem;
+    }
+    .desktop-nav > * + * {
+        margin-left: 0.6rem !important;
+    }
+    .desktop-nav .nav-item {
+        font-size: 14px;
+    }
+    .desktop-nav .btn-primary {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}

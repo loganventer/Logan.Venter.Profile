@@ -171,3 +171,8 @@
 [data-theme="light"] .project-group-title { color: #0284c7; }
 [data-theme="light"] .project-link-blue { color: #2563eb; }
 [data-theme="light"] .project-link-green { color: #059669; }
+
+/* Cards that the menu scrolls to sit clear of the sticky header */
+.project-card[id] {
+    scroll-margin-top: 96px;
+}
