@@ -212,7 +212,7 @@
                 </svg>
                 <span class="site-brand">
                     <span>Logan Venter</span>
-                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.2, updated 9 Oct 2026</span>
+                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.3, updated 9 Oct 2026</span>
                 </span>
             </a>
             <div class="desktop-nav hidden lg:flex items-center space-x-4">
@@ -251,16 +251,9 @@
                     </div>
                 </div>
                 <div class="dropdown relative">
-                    <button class="nav-item" aria-haspopup="true" aria-expanded="false">Open Source <i class="fas fa-chevron-down fa-xs"></i></button>
-                    <div class="dropdown-content" role="menu">
-                        <a href="#" onclick="showProject('open-source', 'os-tawk', this)">tawk | WhatsApp client</a>
-                        <a href="#" onclick="showProject('open-source', 'os-tawk-mcp', this)">tawk-mcp | MCP server</a>
-                        <a href="#" onclick="showProject('open-source', 'os-matrix-clock', this)">matrix-clock | Terminal clock</a>
-                    </div>
-                </div>
-                <div class="dropdown relative">
                     <button class="nav-item" aria-haspopup="true" aria-expanded="false">Projects <i class="fas fa-chevron-down fa-xs"></i></button>
                     <div class="dropdown-content" role="menu">
+                        <a href="#" onclick="showSection('open-source', this)">Open Source</a>
                         <a href="#" onclick="showSection('featured-projects', this)">Featured Projects</a>
                         <a href="#" onclick="showSection('personal-interests', this)">Personal Interests</a>
                     </div>
@@ -314,19 +307,15 @@
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('skills-frameworks', this); toggleMobileMenu();">Frameworks &amp; Methodologies</a>
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('skills-concepts', this); toggleMobileMenu();">Architectural Concepts</a>
             
-            <h3 class="text-gray-400 mt-6 mb-2 font-bold">Open Source</h3>
-            <a href="#" class="block py-2 text-white text-lg" onclick="showProject('open-source', 'os-tawk', this); toggleMobileMenu();">tawk</a>
-            <a href="#" class="block py-2 text-white text-lg" onclick="showProject('open-source', 'os-tawk-mcp', this); toggleMobileMenu();">tawk-mcp</a>
-            <a href="#" class="block py-2 text-white text-lg" onclick="showProject('open-source', 'os-matrix-clock', this); toggleMobileMenu();">matrix-clock</a>
-
             <h3 class="text-gray-400 mt-6 mb-2 font-bold">Projects</h3>
+            <a href="#" class="block py-2 text-white text-lg" onclick="showSection('open-source', this); toggleMobileMenu();">Open Source</a>
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('featured-projects', this); toggleMobileMenu();">Featured Projects</a>
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('personal-interests', this); toggleMobileMenu();">Personal Interests</a>
             <a href="#" class="block py-3 text-white text-xl" onclick="showSection('references', this); toggleMobileMenu();">References</a>
             <a href="assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf" download="Logan Venter Curriculum Vitae 09-10-2026.pdf" class="mt-8 inline-flex items-center justify-center btn-primary text-white font-bold py-3 px-5 rounded-lg whitespace-nowrap">
                 <i class="fas fa-download mr-2"></i>Download CV
             </a>
-            <p class="site-version site-version-mobile">v1.7.2, updated 9 Oct 2026</p>
+            <p class="site-version site-version-mobile">v1.7.3, updated 9 Oct 2026</p>
         </div>
     </div>
 

@@ -47,7 +47,7 @@ The chatbot functions need an `ANTHROPIC_API_KEY` and the token signing secret i
 
 | Path | Holds |
 | --- | --- |
-| `index.html` | The whole page: every section, the navigation and the project cards. Open source projects have their own menu and section (`open-source`), apart from the featured projects |
+| `index.html` | The whole page: every section, the navigation and the project cards. Open source projects have their own entry in the Projects menu and their own section (`open-source`), apart from the featured projects |
 | `css/` | Styles split by concern: `variables`, `base`, `nav`, `sections`, `projects`, `neural`, `chatbot` |
 | `js/app.js` | The composition root that wires the components together |
 | `js/components/`, `js/core/`, `js/contracts/`, `js/effects/` | Navigation, section routing, theme toggle, event bus and the neural background |
