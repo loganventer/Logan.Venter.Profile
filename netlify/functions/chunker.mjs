@@ -23,7 +23,8 @@ export function chunkKnowledge(knowledge) {
       content:
         p.name + ". " + p.category + ". " + p.description +
         " Technologies: " + p.tech.join(", ") +
-        ". Highlights: " + p.highlights.join("; "),
+        ". Highlights: " + p.highlights.join("; ") +
+        (p.url ? ". Source code: " + p.url : ""),
       metadata: { name: p.name, tech: p.tech },
     });
   }

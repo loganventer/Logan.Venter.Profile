@@ -1,213 +1,90 @@
 # Logan Venter Profile
 
-This repository hosts the source code for Logan Venter's personal portfolio website. The site is built using standard HTML, Tailwind CSS and vanilla JavaScript with advanced performance optimizations and PWA capabilities.
+Source for [loganventer.com](https://loganventer.com), Logan Venter's personal portfolio site. It is a static single-page site with an AI agent that answers questions about Logan's experience, skills and projects.
 
-## Recent Updates
+## Table of Contents
 
-- **Mobile Neural Visibility** - Enhanced firing dendrite visibility on mobile devices with increased line width and firing frequency
-- **Performance Optimizations** - Automatic brightness scaling for different screen types and device capabilities
-- **Accessibility Improvements** - Better contrast and visibility across devices
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Project Structure](#project-structure)
+- [Updating Content](#updating-content)
+- [Scripts](#scripts)
+- [Deployment](#deployment)
+- [Keeping Internal Names Out](#keeping-internal-names-out)
+- [License](#license)
+
+## Overview
+
+The frontend is hand-written HTML, Tailwind CSS from a CDN and modular ES6 JavaScript, with no bundler. The backend is a set of Netlify Functions that power the chatbot: a hybrid retrieval pipeline over a small knowledge base, tool calling, token-based access control and streaming responses.
+
+```mermaid
+flowchart LR
+    V["Visitor"] --> P["index.html<br/>static page"]
+    P -->|chat| F["Netlify Functions<br/>chat, token, verify-token"]
+    F --> R["RAG pipeline<br/>BM25, query expansion, RRF"]
+    R --> K["Knowledge base<br/>netlify/functions/knowledge"]
+    F --> L["LLM"]
+    K --> CV["CV PDF<br/>scripts/build-cv.mjs"]
+```
 
 ## Quick Start
 
 ```bash
-# Clone the repository
-git clone [repository-url]
-cd loganventer
+git clone https://github.com/loganventer/Logan.Venter.Profile.git
+cd Logan.Venter.Profile
 
-# Open in browser (no build process required)
-open index.html
-
-# Or serve with a local server
+# Static page only (the chatbot needs the functions)
 npx serve .
+
+# Page and functions together
+npm ci
+npx netlify dev
 ```
 
-## Dependencies
-
-This project uses only vanilla technologies:
-- HTML5
-- CSS3 (with Tailwind CSS classes)
-- Vanilla JavaScript (ES6+)
-- No build tools or package managers required
-
-## Features
-
-### 🚀 Performance & User Experience
-- **Progressive Web App (PWA)** - Installable on mobile devices
-- **Service Worker** - Offline functionality and caching
-- **Loading States** - Smooth transitions and visual feedback
-- **Performance Monitoring** - Auto-adjusts particle effects based on device capabilities
-- **Accessibility** - Keyboard navigation, focus indicators, and reduced motion support
-
-### 🎨 Visual & Interactive
-- **Neural Network Animation** - Dynamic particle system with performance controls
-- **Responsive Design** - Optimized for all device sizes
-- **Smooth Animations** - CSS transitions and intersection observer animations
-- **Dark Theme** - Modern, professional appearance
-
-### 📱 Mobile Optimized
-- **Touch-Friendly Navigation** - Mobile menu with gesture support
-- **Performance Scaling** - Reduced effects on low-end devices
-- **PWA Installation** - Add to home screen functionality
-
-## Neural Network Particle System
-
-The website features a sophisticated neural network animation system that creates dynamic connections between particles, simulating neural activity. The system is highly configurable and automatically optimizes performance based on device capabilities.
-
-### Configuration
-
-The particle system can be customized by modifying the `config` object in `js/neuralbackground.js`. Here are the key configuration categories:
-
-#### Particle Appearance & Behavior
-- `PARTICLE_COLOR` - Main color of particles (default: '#38BDF8')
-- `MIN_RADIUS` / `MAX_RADIUS` - Particle size range in pixels (default: 2-4)
-- `INITIAL_VELOCITY_RANGE` - How fast particles move (default: 0.5)
-- `PARTICLES_PER_PIXEL_DENSITY` - Particle density (default: 35000)
-
-#### Connection Settings
-- `MAX_CONNECTION_DISTANCE` - Maximum distance for connections (default: 200px)
-- `PROXIMITY_LINE_OPACITY` - Transparency of static connections (default: 0.5)
-- `PROXIMITY_LINE_WIDTH` - Width of proximity lines (default: 0.8)
-
-#### Firing Connections (Dynamic Signals)
-- `FIRING_CHANCE` - Probability of firing per frame (default: 0.0003)
-- `FIRING_DURATION` - How long firing connections last (default: 240 frames)
-- `PROPAGATION_CHANCE` - Chance of signal propagating (default: 0.1)
-- `FIRING_LINE_WIDTH` - Width of firing lines (default: 2)
-
-#### Dendrite Settings (Particle Branches)
-- `STATIC_DENDRITE_OPACITY` - Transparency of branches (default: 0.18)
-- `STATIC_DENDRITE_LIFESPAN` - How long branches grow (default: 60)
-- `STATIC_DENDRITE_BRANCH_CHANCE` - Probability of branching (default: 0.1)
-- `STATIC_DENDRITE_SEGMENT_LENGTH` - Length of each segment (default: 5)
-
-#### Wobble Animation
-- `WOBBLE_SPEED` - Speed of wobble animation (default: 0.0002)
-- `WOBBLE_FREQUENCY_MULTIPLIER` - Frequency of wobble (default: 1)
-- `WOBBLE_AMPLITUDE_MULTIPLIER` - Overall wobble amplitude (default: 0.7)
-
-#### Performance Settings
-- `PERFORMANCE_FPS_THRESHOLD` - FPS threshold for reduction (default: 30)
-- `PERFORMANCE_PARTICLE_REDUCTION` - Particles to remove if slow (default: 10)
-- `MOBILE_BREAKPOINT` - Screen width for mobile optimization (default: 768)
-
-### Usage Examples
-
-#### Basic Implementation
-```javascript
-// Initialize the particle system
-const particleSystem = new ParticleSystem('particle-canvas');
-particleSystem.start();
-
-// Pause/resume animation
-particleSystem.pauseAnimation();
-particleSystem.resumeAnimation();
-
-// Clean up when done
-particleSystem.destroy();
-```
-
-#### Custom Configuration
-```javascript
-// Create custom configuration
-const customConfig = {
-    PARTICLE_COLOR: '#FF6B6B',
-    INITIAL_VELOCITY_RANGE: 1.0,
-    FIRING_CHANCE: 0.001,
-    WOBBLE_SPEED: 0.0001
-};
-
-// Apply custom config
-const particleSystem = new ParticleSystem('particle-canvas');
-Object.assign(particleSystem.config, customConfig);
-particleSystem.start();
-```
-
-#### Performance Optimization
-```javascript
-// For low-end devices, reduce effects
-const lowEndConfig = {
-    PARTICLES_PER_PIXEL_DENSITY: 50000,  // Fewer particles
-    FIRING_CHANCE: 0.0001,               // Less firing
-    PARTICLE_SHADOW_BLUR: 8,             // Less blur
-    WOBBLE_AMPLITUDE_MULTIPLIER: 0.3     // Less wobble
-};
-```
-
-### Performance Features
-
-The system automatically:
-- **Scales particle count** based on screen size and device capabilities
-- **Reduces effects** on mobile and low-end devices
-- **Pauses animation** when the tab is not visible
-- **Monitors FPS** and removes particles if performance drops
-- **Uses quadtree** for efficient collision detection
-
-### Browser Compatibility
-
-The particle system works on all modern browsers with Canvas support:
-- Chrome/Edge (full support)
-- Firefox (full support)
-- Safari (full support)
-- Mobile browsers (optimized performance)
+The chatbot functions need an `ANTHROPIC_API_KEY` and the token signing secret in the environment. Set them in Netlify, or in a local `.env` file that is never committed.
 
 ## Project Structure
 
-- `index.html` – Main entry page with SEO optimization
-- `css/style.css` – Custom styles with accessibility features
-- `js/main.js` – Core functionality and performance optimizations
-- `js/neuralbackground.js` – Neural network animation system
-- `sw.js` – Service worker for offline support
-- `manifest.json` – PWA manifest file
-- `assets/` – Images and documents used by the site
+| Path | Holds |
+| --- | --- |
+| `index.html` | The whole page: every section, the navigation and the project cards |
+| `css/` | Styles split by concern: `variables`, `base`, `nav`, `sections`, `projects`, `neural`, `chatbot` |
+| `js/app.js` | The composition root that wires the components together |
+| `js/components/`, `js/core/`, `js/contracts/`, `js/effects/` | Navigation, section routing, theme toggle, event bus and the neural background |
+| `js/chatbot/` | The chat widget: access gate, streaming, message rendering |
+| `netlify/functions/` | The chatbot backend: `chat`, `token`, `verify-token`, the RAG pipeline and the tool providers |
+| `netlify/functions/knowledge/` | The knowledge base the chatbot and the CV are built from |
+| `scripts/` | Build scripts for the RAG index and the CV, and the leak check |
+| `assets/` | Images and the generated CV |
+| `sw.js`, `manifest.json` | The service worker and the PWA manifest |
 
-## Technical Improvements
+## Updating Content
 
-### Performance Enhancements
-- **Lazy Loading** - Intersection Observer for section animations
-- **Resource Preloading** - Critical assets loaded first
-- **Memory Management** - Proper cleanup of animations and event listeners
-- **FPS Monitoring** - Automatic performance adjustment
+Content lives in three places that must say the same thing:
 
-### SEO & Accessibility
-- **Meta Tags** - Complete Open Graph and Twitter Card support
-- **Semantic HTML** - Proper heading structure and landmarks
-- **Keyboard Navigation** - Full keyboard accessibility
-- **Screen Reader Support** - ARIA labels and semantic markup
+1. `netlify/functions/knowledge/*.mjs` is the source for the chatbot and the CV. Edit this first.
+2. `index.html` holds the same facts as hand-written markup. Edit it to match.
+3. The CV PDF in `assets/documents/` is generated. Rebuild it with `npm run build:cv`, then point the three download links in `index.html` at the new file.
 
-### Progressive Web App Features
-- **Offline Support** - Service worker caches critical resources
-- **Install Prompt** - Users can install the app on their devices
-- **Background Sync** - Handles offline actions when connection returns
-- **App-like Experience** - Standalone mode and splash screens
+A project in `projects.mjs` may carry a `url`. The chatbot and the CV both show it.
 
-## Usage
+After changing content, raise `SITE_VERSION` and set `SITE_UPDATED` in `sw.js`, and change the version line in `index.html` to match. It appears twice: under the name in the header and at the foot of the mobile menu. The new cache name makes returning visitors get the new version.
 
-### Development
-Open `index.html` directly in a browser or serve the directory with any static web server:
+## Scripts
 
-```bash
-npx serve .
-```
+| Command | Does |
+| --- | --- |
+| `npm run build` | Builds the RAG index (`netlify/functions/rag-data.mjs`). Netlify runs this on every deploy |
+| `npm run build:cv` | Renders the CV to a dated PDF in `assets/documents/` (needs Chrome through Puppeteer) |
+| `npm run check:leaks` | Scans the published files for terms listed in `.leak-denylist` |
 
-### Production Deployment
-For production deployment, ensure:
-1. HTTPS is enabled (required for service worker)
-2. All assets are properly cached
-3. Performance monitoring is active
+## Deployment
 
-### Browser Support
-- **Modern Browsers** - Full PWA support
-- **Legacy Browsers** - Graceful degradation
-- **Mobile Browsers** - Optimized performance
+Netlify builds and deploys the `main` branch. `netlify.toml` sets the build command, the functions folder and the security headers, including the Content Security Policy. Images must be served from this site, because the policy blocks other image hosts.
 
-## Performance Metrics
+## Keeping Internal Names Out
 
-The site is optimized for:
-- **First Contentful Paint** < 1.5s
-- **Largest Contentful Paint** < 2.5s
-- **Cumulative Layout Shift** < 0.1
-- **First Input Delay** < 100ms
+The site describes work done for employers in general terms. Before committing, run `npm run check:leaks`. It reads `.leak-denylist`, a local file with one term per line that is never committed, and fails when any term appears in a published file. Without that file the check does nothing.
 
 ## License
 

@@ -11,6 +11,9 @@ Thumbs.db
 # Generated RAG index (built at deploy time)
 netlify/functions/rag-data.mjs
 
+# Local list of terms the leak check looks for (never commit)
+.leak-denylist
+
 # Logs
 npm-debug.log*
 yarn-debug.log*

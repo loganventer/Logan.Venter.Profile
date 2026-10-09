@@ -119,3 +119,55 @@
 [data-theme="light"] .project-card .mermaid .edgeLabel polygon { fill: #e2e8f0 !important; }
 [data-theme="light"] .project-card .mermaid .flowchart-link { stroke: #94a3b8 !important; }
 [data-theme="light"] .project-card .mermaid marker path { fill: #94a3b8 !important; }
+
+/* Project group headings, highlights, screenshots and source links */
+.project-group-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-bottom: 1rem;
+}
+
+.project-points {
+    list-style: disc outside;
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.project-points li + li {
+    margin-top: 0.35rem;
+}
+
+.project-shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.project-link:hover {
+    transform: translateY(-1px);
+}
+
+.project-link-blue { background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.45); color: #93c5fd; }
+.project-link-green { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.45); color: #6ee7b7; }
+.project-link-blue:hover { background: rgba(59, 130, 246, 0.28); }
+.project-link-green:hover { background: rgba(16, 185, 129, 0.28); }
+
+[data-theme="light"] .project-group-title { color: #0284c7; }
+[data-theme="light"] .project-link-blue { color: #2563eb; }
+[data-theme="light"] .project-link-green { color: #059669; }

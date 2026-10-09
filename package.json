@@ -5,6 +5,7 @@
   "scripts": {
     "build:rag": "node scripts/build-rag-index.mjs",
     "build:cv": "node scripts/build-cv.mjs",
+    "check:leaks": "node scripts/check-leaks.mjs",
     "build": "node scripts/build-rag-index.mjs"
   },
   "dependencies": {

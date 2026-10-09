@@ -1,10 +1,10 @@
 export const skills = {
   languages: [
     {
-      name: "C# / .NET 9",
+      name: "C# / .NET 10",
       level: "Primary",
       description:
-        "High-performance services, MCP frameworks, enterprise backend systems",
+        "High-performance services, MCP servers and frameworks, AI gateways, enterprise backend systems",
     },
     {
       name: "Python",
@@ -28,6 +28,11 @@ export const skills = {
       description: "T-SQL, complex schemas, query optimization",
     },
     {
+      name: "C",
+      level: "Strong",
+      description: "Native terminal applications with ncurses, SQLite and multi-threaded networking",
+    },
+    {
       name: "C++",
       level: "Experienced",
       description: "Performance-critical and security applications",
@@ -35,22 +40,26 @@ export const skills = {
   ],
   frameworks: [
     "LangChain and LangGraph for LLM orchestration",
-    "Model Context Protocol (MCP) for AI agent tooling",
+    "Model Context Protocol (MCP) for AI agent tooling, on the official C# SDK and custom frameworks",
+    "Agent-to-agent (A2A) protocol for multi-agent systems",
     "RAG pipelines with 14 chunking strategies, hybrid retrieval (BM25 + vector), RAPTOR, HyDE, ColBERT, Graph RAG, deep search, and hallucination detection",
     "Vector databases: Qdrant, FAISS, Pinecone, ChromaDB, Weaviate",
-    "Multi-agent orchestration and recursive agent systems",
+    "Multi-agent orchestration, recursive agent systems, and proof-gated agent verification",
+    "Human-in-the-loop agent design: approval gates, two-step confirmation, untrusted text fencing",
     "AI security: multi-turn attack scoring, risk accumulation/decay, canary tokens, spotlighting, tool chain validation, capability restriction",
     "Context management: rolling window, fallback summarization, conversation reranking and compression",
     "Prompt engineering, prompt security, and semantic search",
     "Multi-protocol backend (gRPC, SignalR, SSE, Streamable HTTP, WebSocket, REST)",
+    "Microsoft Graph and Microsoft Entra ID integration",
+    "ncurses and SQLite for native terminal applications",
     "React and TypeScript for web frontends",
     "Flutter for cross-platform mobile/desktop",
     "Tailwind CSS for styling",
-    "Docker, Docker Compose, and Rancher for containerization",
+    "Docker, Docker Compose, Rancher, and Kubernetes for containerization",
     "Cross-platform deployment (Linux, Mac, Windows)",
     "Azure cloud infrastructure",
     "CI/CD pipelines",
-    "xUnit and Vitest for testing",
+    "NUnit, xUnit, pytest and Vitest for testing, with coverage gates in CI",
     "OpenTelemetry + Elasticsearch for observability",
     "A/B testing frameworks and experiment management",
   ],
@@ -63,7 +72,7 @@ export const skills = {
     "Agentic AI Design Patterns (spotlighting, guardrails, tool use governance, human-in-the-loop orchestration, structured output filtering)",
     "Multi-turn security (prompt injection scanning, multi-turn attack scoring, canary tokens, risk accumulation/decay, capability restriction, output leakage detection)",
     "Content style enforcement and structured output generation with schema validation",
-    "Database and Vector Storage (PostgreSQL, SQLite, vector databases)",
+    "Database and Vector Storage (SQL Server, PostgreSQL, SQLite, vector databases)",
     "Observability patterns (correlation IDs, structured logging, OpenTelemetry)",
   ],
 };

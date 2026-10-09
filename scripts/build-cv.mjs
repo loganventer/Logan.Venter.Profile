@@ -62,6 +62,7 @@ function buildContent() {
   html += `<h2>Featured Projects</h2>\n`;
   for (const proj of projects) {
     html += `<h3>${esc(proj.name)}</h3>\n`;
+    if (proj.url) html += `<div class="note"><a href="${esc(proj.url)}">${esc(proj.url.replace("https://", ""))}</a></div>\n`;
     html += `<p style="font-size:9.5pt;color:#334155;margin:2px 0;">${esc(proj.description)}</p>\n`;
     if (proj.highlights && proj.highlights.length > 0) {
       html += `<ul>\n`;

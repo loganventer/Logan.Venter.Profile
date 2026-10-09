@@ -15,7 +15,7 @@ export function searchKnowledge(query) {
     if (q.includes("project") || p.name.toLowerCase().includes(q) || p.description.toLowerCase().includes(q) || p.tech.some(function (t) { return q.includes(t.toLowerCase()); })) {
       results.push({
         topic: "Project: " + p.name,
-        content: p.description + " Tech: " + p.tech.join(", ") + ". Highlights: " + p.highlights.join("; "),
+        content: p.description + " Tech: " + p.tech.join(", ") + ". Highlights: " + p.highlights.join("; ") + (p.url ? ". Source code: " + p.url : ""),
       });
     }
   }

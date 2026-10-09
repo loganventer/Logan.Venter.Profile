@@ -1,17 +1,24 @@
 // Service Worker for Logan Venter Portfolio
-const CACHE_NAME = 'logan-venter-portfolio-v1.6.9';
+// Site version and the date the content was last updated. Keep both in step
+// with the version line shown in the menu in index.html.
+const SITE_VERSION = '1.7.0';
+const SITE_UPDATED = '2026-10-09';
+const CACHE_NAME = `logan-venter-portfolio-v${SITE_VERSION}-${SITE_UPDATED}`;
 const urlsToCache = [
     '/',
     '/index.html',
-    '/css/style.css',
-    '/js/main.js',
-    '/js/neuralbackground.js',
-    '/js/chatbot.js',
+    '/css/variables.css',
+    '/css/base.css',
+    '/css/neural.css',
+    '/css/nav.css',
+    '/css/sections.css',
+    '/css/projects.css',
+    '/css/chatbot.css',
+    '/js/app.js',
     '/assets/images/image.jpg',
-    '/assets/documents/Logan Venter Curriculum Vitae 13-06-2025.pdf',
-    'https://cdn.tailwindcss.com',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap'
+    '/assets/images/tawk-main.png',
+    '/assets/images/matrix-clock.png',
+    '/assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf'
 ];
 
 // Install event - cache resources
