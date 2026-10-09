@@ -4,7 +4,7 @@ export const experience = [
     shortName: "TIH",
     title: "Senior AI/Platform Engineer",
     period: "Aug 2025 - Present",
-    note: "Permanent employee since 1 May 2026. Contractor via DotCom Software Solutions from Aug 2025 to Apr 2026",
+    note: "Permanent employee of Telesure since 1 May 2026. Started as a contractor placed by DotCom Software Solutions, from Aug 2025 to Apr 2026",
     responsibilities: [
       "Architected and built an agentic AI framework of 18 Python packages and 17 .NET projects, applying iDesign methodology with strict dependency direction and protocol-based dependency inversion",
       "Exposed the Python framework to .NET through a gRPC sidecar with typed client libraries, so behaviour is written once",

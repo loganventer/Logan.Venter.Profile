@@ -138,3 +138,88 @@
         order: 1;
     }
 }
+
+/* Employment path on a role: how the engagement changed over time */
+.employment-path {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 24px;
+}
+
+.employment-step {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border-light);
+    background: rgba(148, 163, 184, 0.06);
+    min-width: 220px;
+}
+
+.employment-step-current {
+    border-color: rgba(16, 185, 129, 0.5);
+    background: rgba(16, 185, 129, 0.08);
+}
+
+.employment-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+}
+
+.employment-when {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.employment-how {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.employment-badge {
+    align-self: flex-start;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.employment-badge-past {
+    background: rgba(148, 163, 184, 0.15);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    color: var(--text-muted);
+}
+
+.employment-badge-current {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    color: #6ee7b7;
+}
+
+.employment-badge-inline {
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+[data-theme="light"] .employment-badge-current {
+    color: #047857;
+}
+
+@media (max-width: 767px) {
+    .employment-path {
+        flex-direction: column;
+    }
+    .employment-arrow {
+        justify-content: center;
+        transform: rotate(90deg);
+    }
+}

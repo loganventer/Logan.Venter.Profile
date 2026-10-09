@@ -1,7 +1,7 @@
 // Service Worker for Logan Venter Portfolio
 // Site version and the date the content was last updated. Keep both in step
 // with the version line shown in the menu in index.html.
-const SITE_VERSION = '1.7.7';
+const SITE_VERSION = '1.7.8';
 const SITE_UPDATED = '2026-10-09';
 const CACHE_NAME = `logan-venter-portfolio-v${SITE_VERSION}-${SITE_UPDATED}`;
 const urlsToCache = [
@@ -21,22 +21,24 @@ const urlsToCache = [
     '/assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf'
 ];
 
-// Install event - cache resources
+// Install event - cache resources, and take over without waiting for old tabs to close
 self.addEventListener('install', event => {
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => {
-                console.log('Opened cache');
-                return cache.addAll(urlsToCache);
-            })
+            .then(cache => cache.addAll(urlsToCache))
             .catch(error => {
                 console.log('Cache failed:', error);
             })
     );
 });
 
-// Fetch event - serve from cache when offline
+// Fetch event - this site's own files come from the network first, so visitors
+// always see the latest version, and from the cache only when offline.
+// Files from other hosts (fonts, libraries) come from the cache first.
 self.addEventListener('fetch', event => {
+    if (event.request.method !== 'GET') return;
+
     // Never cache API calls (Netlify Functions, external backends)
     const url = new URL(event.request.url);
     if (url.pathname.startsWith('/.netlify/functions/') || url.pathname === '/cb-admin.html') {
@@ -44,47 +46,34 @@ self.addEventListener('fetch', event => {
         return;
     }
 
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                // Return cached version or fetch from network
-                if (response) {
-                    return response;
-                }
-                
-                // Clone the request because it's a stream
-                const fetchRequest = event.request.clone();
-                
-                return fetch(fetchRequest).then(response => {
-                    // Check if we received a valid response
-                    if (!response || response.status !== 200 || response.type !== 'basic') {
-                        return response;
+    if (url.origin === self.location.origin) {
+        event.respondWith(
+            fetch(event.request)
+                .then(response => {
+                    if (response && response.status === 200 && response.type === 'basic') {
+                        const responseToCache = response.clone();
+                        caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseToCache));
                     }
-                    
-                    // Clone the response because it's a stream
-                    const responseToCache = response.clone();
-                    
-                    caches.open(CACHE_NAME)
-                        .then(cache => {
-                            cache.put(event.request, responseToCache);
-                        });
-                    
                     return response;
-                });
-            })
-            .catch(() => {
-                // Return offline page for navigation requests
-                if (event.request.mode === 'navigate') {
-                    return caches.match('/index.html');
-                }
-            })
+                })
+                .catch(() => caches.match(event.request).then(cached => {
+                    if (cached) return cached;
+                    if (event.request.mode === 'navigate') return caches.match('/index.html');
+                    return Response.error();
+                }))
+        );
+        return;
+    }
+
+    event.respondWith(
+        caches.match(event.request).then(cached => cached || fetch(event.request))
     );
 });
 
 // Activate event - clean up old caches
 self.addEventListener('activate', event => {
     event.waitUntil(
-        caches.keys().then(cacheNames => {
+        self.clients.claim().then(() => caches.keys()).then(cacheNames => {
             return Promise.all(
                 cacheNames.map(cacheName => {
                     if (cacheName !== CACHE_NAME) {
