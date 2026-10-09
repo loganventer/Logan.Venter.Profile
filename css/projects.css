@@ -191,3 +191,11 @@
 [data-theme="light"] .project-notice {
     color: #92400e;
 }
+
+/* Edge labels: Mermaid 11 paints these with a background colour, not a rect */
+.project-card .edgeLabel,
+.project-card .edgeLabel .labelBkg,
+.project-card .edgeLabel p {
+    background-color: var(--mermaid-edge-bg) !important;
+    color: var(--mermaid-edge-text) !important;
+}
