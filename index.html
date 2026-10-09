@@ -212,7 +212,7 @@
                 </svg>
                 <span class="site-brand">
                     <span>Logan Venter</span>
-                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.8, updated 9 Oct 2026</span>
+                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.9, updated 9 Oct 2026</span>
                 </span>
             </a>
             <div class="desktop-nav hidden lg:flex items-center space-x-4">
@@ -315,7 +315,7 @@
             <a href="assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf" download="Logan Venter Curriculum Vitae 09-10-2026.pdf" class="mt-8 inline-flex items-center justify-center btn-primary text-white font-bold py-3 px-5 rounded-lg whitespace-nowrap">
                 <i class="fas fa-download mr-2"></i>Download CV
             </a>
-            <p class="site-version site-version-mobile">v1.7.8, updated 9 Oct 2026</p>
+            <p class="site-version site-version-mobile">v1.7.9, updated 9 Oct 2026</p>
         </div>
     </div>
 
@@ -1823,21 +1823,30 @@ graph LR
                             <span class="project-label project-label-green">AI Platform Framework</span>
                             <h3 class="text-2xl font-bold mb-3">Agentic AI Framework for Python and .NET</h3>
                             <div class="text-gray-400 mb-4">
-                                A layered toolkit for building LLM agent applications, following an <span class="exp-toggle">iDesign architecture</span><div class="exp-detail-content"><ul><li>iDesign is a methodology for decomposing systems into Managers, Engines, Resource Accessors, and Utilities</li><li>18 independently versioned Python packages and 17 .NET projects</li><li>Protocol-based contracts for all cross-layer communication</li></ul></div>. It covers the agent tool loop, planning (ReAct, Plan-Execute, Adaptive), production RAG with <span class="exp-toggle">14 chunking strategies</span><div class="exp-detail-content"><ul><li>Recursive, semantic, sentence, fixed, markdown, HTML, code, table-aware, hierarchical, contextual, proposition, late, agentic, compression</li><li>Each strategy optimized for different document types and retrieval patterns</li></ul></div>, 7 vector stores, a multi-turn security pipeline, LLM and embedding gateways, and MCP and A2A interop. Python is the reference implementation, and a gRPC sidecar exposes it to .NET through typed clients so behaviour is written once.
+                                A layered toolkit for building LLM agent applications, following an <span class="exp-toggle">iDesign architecture</span><div class="exp-detail-content"><ul><li>iDesign is a methodology for decomposing systems into Managers, Engines, Resource Accessors, and Utilities</li><li>18 independently versioned Python packages and 17 .NET projects, so an application takes only the parts it needs</li><li>Protocol-based contracts for all cross-layer communication, with one type per file</li><li>A fluent agent builder that validates the chosen features before anything runs</li><li>Optional extras with lazy imports, so unused integrations cost nothing</li></ul></div>. At its centre is the <span class="exp-toggle">agent loop</span><div class="exp-detail-content"><ul><li>A full tool-calling loop with streaming and five tool hooks for policy, logging and approval</li><li>Three planning strategies: ReAct (iterative reasoning), Plan-Execute (upfront planning) and Adaptive (the model picks by task complexity)</li><li>Six RAG strategies that decide when and how the agent retrieves</li><li>Ten built-in coding tools confined to a workspace, with a URL guard</li><li>Context management with rolling windows, summarisation and vector-backed memory</li></ul></div>, with a production <span class="exp-toggle">RAG pipeline</span><div class="exp-detail-content"><ul><li>14 chunking strategies: recursive, semantic, sentence, fixed, markdown, HTML, code, table-aware, hierarchical, contextual, proposition, late, agentic, compression</li><li>7 vector stores: FAISS, Qdrant, Chroma, Pinecone, Weaviate, a file store and an in-memory store</li><li>Hybrid retrieval (BM25 + vector) with fusion by RRF, CombSUM and weighted scoring</li><li>Reranking by cross-encoder, ColBERT and LLM, plus HyDE, graph retrieval, RAPTOR and four deep-search modes</li><li>Versioned knowledge bases with commit, activation and rollback</li></ul></div>, a <span class="exp-toggle">security pipeline</span><div class="exp-detail-content"><ul><li>43 registered prompt injection patterns behind a pluggable scanner registry</li><li>Spotlighting and sandwich defence around untrusted input, and canary tokens to detect exfiltration</li><li>Multi-turn attack detection with risk that accumulates and decays across a conversation</li><li>Tool chain validation, and capability restriction as risk rises</li><li>Adapters that fail closed when a scanner cannot run</li></ul></div>, and <span class="exp-toggle">provider gateways</span><div class="exp-detail-content"><ul><li>6 LLM gateways and 3 embedding gateways behind one interface, chosen from configuration</li><li>Streaming and non-streaming generation through the same contract</li><li>Capability registries that record which models support structured output and logit control</li><li>Authentication and RBAC, logging, metrics and OpenTelemetry tracing shared by every package</li></ul></div>. Agents interoperate over MCP and A2A, and <span class="exp-toggle">reasoning extensions</span><div class="exp-detail-content"><ul><li>Tree of Thoughts and tournament reasoning for hard problems</li><li>Reflexion with procedural memory, so an agent learns from its own failed attempts</li><li>Evaluator-optimiser loops and hallucination detection from token probabilities</li><li>Human approval gates in workflows</li></ul></div> are opt-in. Python is the reference implementation, and a <span class="exp-toggle">gRPC sidecar</span><div class="exp-detail-content"><ul><li>The Python framework runs as a self-contained sidecar process that .NET talks to over gRPC</li><li>12 protobuf contracts and 11 services, with thin typed .NET clients on top</li><li>Built for Linux, Windows and macOS and shipped inside the NuGet package, so .NET consumers need no Python install</li><li>Behaviour is written once and stays identical across both languages</li></ul></div> exposes it to .NET.
                             </div>
+                            <ul class="project-points mb-4">
+                                <li>18 Python packages and 17 .NET projects, each versioned on its own</li>
+                                <li>Coverage gates per package, at 95% for most, with lint, type and security checks in CI</li>
+                                <li>A developer onboarding course with test-graded exercises</li>
+                            </ul>
                             <pre class="mermaid mb-4">
 graph LR
   Py[Python Apps] --> FW[Agent Framework]
   Net[.NET Apps] -->|gRPC sidecar| FW
+  FW --> Loop[Agent Loop + Planning]
   FW --> RAG[RAG Pipeline]
   FW --> Sec[Security]
   FW --> LLM[LLM Gateways]
+  FW --> Inter[MCP + A2A]
   style Py fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
   style FW fill:#1e293b,stroke:#475569,color:#94a3b8
   style Net fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
+  style Loop fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
   style RAG fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
   style Sec fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
   style LLM fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
+  style Inter fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
                             </pre>
                             <div class="flex flex-wrap gap-2 mt-4">
                                 <span class="project-tag project-tag-green">Python</span>
@@ -1847,6 +1856,7 @@ graph LR
                                 <span class="project-tag project-tag-green">.NET 10</span>
                                 <span class="project-tag project-tag-green">MCP</span>
                                 <span class="project-tag project-tag-green">A2A</span>
+                                <span class="project-tag project-tag-green">OpenTelemetry</span>
                             </div>
                         </div>
                     </div>
