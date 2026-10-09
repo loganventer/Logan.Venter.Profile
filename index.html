@@ -212,7 +212,7 @@
                 </svg>
                 <span class="site-brand">
                     <span>Logan Venter</span>
-                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.3, updated 9 Oct 2026</span>
+                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.4, updated 9 Oct 2026</span>
                 </span>
             </a>
             <div class="desktop-nav hidden lg:flex items-center space-x-4">
@@ -315,7 +315,7 @@
             <a href="assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf" download="Logan Venter Curriculum Vitae 09-10-2026.pdf" class="mt-8 inline-flex items-center justify-center btn-primary text-white font-bold py-3 px-5 rounded-lg whitespace-nowrap">
                 <i class="fas fa-download mr-2"></i>Download CV
             </a>
-            <p class="site-version site-version-mobile">v1.7.3, updated 9 Oct 2026</p>
+            <p class="site-version site-version-mobile">v1.7.4, updated 9 Oct 2026</p>
         </div>
     </div>
 
@@ -783,6 +783,7 @@
                                     <span class="detail-tag">OpenTelemetry</span>
                                 </div>
                     </div> on .NET 10 with per-application permissions, budgets, metering and audit</li>
+                    <li>Architected and designed a scheduled knowledge ingestion and curation pipeline that keeps assistant knowledge bases current, with a fail-closed sensitive-data gate and human review through pull requests</li>
                     <li>Ran an automated CI/CD control review across more than 1,000 repositories against 17 fixed checks, attributing every finding to its origin</li>
                     <li>Wrote the developer onboarding course for the framework: an eight-chapter guide with test-graded exercises</li>
                     <li>Leading technical architecture decisions and mentoring team members on AI/ML and clean architecture best practices</li>
@@ -2078,6 +2079,46 @@ graph LR
                                 <span class="project-tag project-tag-amber">Azure DevOps REST API</span>
                                 <span class="project-tag project-tag-amber">YAML pipelines</span>
                                 <span class="project-tag project-tag-amber">Markdown</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Knowledge Ingestion and Curation Pipeline -->
+                    <div class="project-card">
+                        <div class="project-card-accent project-card-accent-green"></div>
+                        <div class="project-card-body">
+                            <span class="project-label project-label-green">Knowledge Engineering</span>
+                            <h3 class="text-2xl font-bold mb-3">Knowledge Ingestion and Curation Pipeline</h3>
+                            <div class="text-gray-400 mb-4">
+                                A scheduled ingestion service that keeps the knowledge behind AI assistants current. It pulls changes from configured sources, extracts and authors a corpus, runs a fail-closed sensitive-data gate, then chunks, embeds and indexes. The readable text is published as a pull request for human review, and the assistant is told to reload. A new assistant is purely a configuration file. I architected and designed the service, and a colleague is building it on the agent framework.
+                            </div>
+                            <ul class="project-points mb-4">
+                                <li>Four source connector types behind one interface</li>
+                                <li>Four single-purpose authoring agents under one orchestrator</li>
+                                <li>Tiered PDF extraction that falls back to OCR</li>
+                                <li>Index files verified by hash and signature before loading, with a circuit breaker per dependency</li>
+                            </ul>
+                            <pre class="mermaid mb-4">
+graph LR
+  Sources[Configured Sources] --> Extract[Extract + Author]
+  Extract --> Gate[Sensitive-Data Gate]
+  Gate --> Index[Chunk + Embed + Index]
+  Index --> Review[Pull Request Review]
+  Index --> Bot[Bot Reload]
+  style Sources fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
+  style Extract fill:#1e293b,stroke:#475569,color:#94a3b8
+  style Gate fill:#1e293b,stroke:#475569,color:#94a3b8
+  style Index fill:#1e293b,stroke:#475569,color:#94a3b8
+  style Review fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
+  style Bot fill:#1a3a2a,stroke:#10b981,color:#6ee7b7
+                            </pre>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="project-tag project-tag-green">Python</span>
+                                <span class="project-tag project-tag-green">A2A</span>
+                                <span class="project-tag project-tag-green">RAG</span>
+                                <span class="project-tag project-tag-green">FAISS</span>
+                                <span class="project-tag project-tag-green">OCR</span>
+                                <span class="project-tag project-tag-green">Azure DevOps</span>
                             </div>
                         </div>
                     </div>

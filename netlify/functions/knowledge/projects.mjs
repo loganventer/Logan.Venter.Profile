@@ -261,6 +261,23 @@ export const projects = [
     ],
   },
   {
+    name: "Knowledge Ingestion and Curation Pipeline",
+    category: "Knowledge Engineering",
+    description:
+      "A scheduled ingestion service that keeps the knowledge behind AI assistants current. It pulls changes from configured sources, extracts and authors a corpus, runs a fail-closed sensitive-data gate, then chunks, embeds and indexes. The readable text is published as a pull request for human review, and the assistant is told to reload. Logan architected and designed the service, and a colleague is building it on the agent framework.",
+    tech: ["Python", "A2A", "RAG", "FAISS", "OCR", "Azure DevOps"],
+    highlights: [
+      "Architecture and design by Logan, with the build led by a colleague",
+      "A new assistant is purely a configuration file",
+      "Four source connector types behind one interface",
+      "Four single-purpose authoring agents under one orchestrator",
+      "A fail-closed sensitive-data gate before anything is indexed",
+      "Tiered PDF extraction that falls back to OCR",
+      "Reviewable text published as a pull request, with the binary index stored separately",
+      "Index files verified by hash and signature before loading, and a circuit breaker per dependency",
+    ],
+  },
+  {
     name: "AI-Powered Knowledge Base System",
     category: "Knowledge Management Platform",
     description:
