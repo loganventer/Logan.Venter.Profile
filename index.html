@@ -212,7 +212,7 @@
                 </svg>
                 <span class="site-brand">
                     <span>Logan Venter</span>
-                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.1, updated 9 Oct 2026</span>
+                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.2, updated 9 Oct 2026</span>
                 </span>
             </a>
             <div class="desktop-nav hidden lg:flex items-center space-x-4">
@@ -326,7 +326,7 @@
             <a href="assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf" download="Logan Venter Curriculum Vitae 09-10-2026.pdf" class="mt-8 inline-flex items-center justify-center btn-primary text-white font-bold py-3 px-5 rounded-lg whitespace-nowrap">
                 <i class="fas fa-download mr-2"></i>Download CV
             </a>
-            <p class="site-version site-version-mobile">v1.7.1, updated 9 Oct 2026</p>
+            <p class="site-version site-version-mobile">v1.7.2, updated 9 Oct 2026</p>
         </div>
     </div>
 
@@ -458,11 +458,11 @@
                             <a href="#" class="section-link" onclick="event.preventDefault(); showSection('featured-projects', this)">View projects &rarr;</a>
                         </div>
                      for code review, agent generation, planning with proof, and document pipelines</li>
-                    <li><span class="exp-toggle">MCP server framework</span>
+                    <li>A discontinued <span class="exp-toggle">MCP server framework</span>
                         <div class="exp-detail-content">
                             <ul>
                                 <li>5 transports: stdio, REST, Streamable HTTP, SignalR, gRPC</li>
-                                <li>Later retired in favour of the official C# MCP SDK, with the servers migrated to .NET 10</li>
+                                <li>Discontinued: the official C# MCP SDK, maintained in collaboration with Microsoft, replaced it, and the servers were migrated to .NET 10</li>
                                 <li>JWT and API key authentication with session management</li>
                                 <li>JSON schema validation for tool inputs and automatic tool discovery from assemblies</li>
                                 <li>LangChain/LangGraph integration with Python client support</li>
@@ -2001,8 +2001,9 @@ graph LR
                     <div class="project-card">
                         <div class="project-card-accent project-card-accent-blue"></div>
                         <div class="project-card-body">
-                            <span class="project-label project-label-blue">.NET Framework</span>
+                            <span class="project-label project-label-blue">.NET Framework (Discontinued)</span>
                             <h3 class="text-2xl font-bold mb-3">MCP Server Framework for .NET</h3>
+                            <p class="project-notice mb-4"><i class="fas fa-circle-info mr-2"></i><strong>Discontinued.</strong> The official C# MCP SDK, maintained in collaboration with Microsoft, now covers this ground. New servers use the SDK, and the servers built on this framework have been migrated to it.</p>
                             <div class="text-gray-400 mb-4">
                                 A <span class="exp-toggle">Model Context Protocol</span><div class="exp-detail-content"><ul><li><a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">MCP</a> is an open standard for connecting AI agents to external tools and data sources</li><li>Supports bidirectional communication between LLMs and tool servers</li><li>Enables dynamic tool discovery, schema validation, and session management</li></ul></div> server framework for .NET, built before an official SDK matured. It supported 5 transports with session management, JWT &amp; API key authentication, JSON schema validation, and attribute-based tool discovery. I later led its retirement in favour of the official C# MCP SDK and migrated the servers built on it.
                             </div>

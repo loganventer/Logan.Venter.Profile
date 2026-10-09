@@ -176,3 +176,18 @@
 .project-card[id] {
     scroll-margin-top: 96px;
 }
+
+/* Notice on a card, such as a discontinued project */
+.project-notice {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    background: rgba(245, 158, 11, 0.1);
+    color: #fcd34d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+[data-theme="light"] .project-notice {
+    color: #92400e;
+}

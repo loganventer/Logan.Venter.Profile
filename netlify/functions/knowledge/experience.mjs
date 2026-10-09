@@ -17,7 +17,7 @@ export const experience = [
       "Built multi-agent systems on the A2A protocol: code and documentation review agents, an agent that builds agents, a planner and proof gate, and a use-case triage and SDLC document pipeline",
       "Built a terminal AI coding assistant with permission-gated tools, persistent memory, and a VS Code extension host",
       "Built a suite of MCP servers for Azure DevOps, Microsoft Teams, Microsoft To Do, Databricks, Toggl Track and web research, with human approval for writes",
-      "Authored an MCP server framework for .NET, then led its retirement in favour of the official C# MCP SDK and migrated the servers to .NET 10",
+      "Authored an MCP server framework for .NET (now discontinued), then led its retirement in favour of the official C# MCP SDK and migrated the servers to .NET 10",
       "Designed and built a governed AI gateway on .NET 10 with per-application permissions, budgets, usage metering and audit",
       "Built shared Microsoft Entra authentication libraries with ten credential strategies and a coalescing token refresh service",
       "Ran an automated CI/CD control review across more than 1,000 repositories against 17 fixed checks",

@@ -105,10 +105,10 @@ export const projects = [
     ],
   },
   {
-    name: "MCP Server Framework for .NET",
+    name: "MCP Server Framework for .NET (Discontinued)",
     category: ".NET Framework",
     description:
-      "A Model Context Protocol server framework for .NET, built before an official SDK matured. It supported multiple transports with session management, JWT and API key authentication, JSON schema validation, and attribute-based tool discovery, and was adopted by other engineers to build servers over line-of-business systems. Logan later led its retirement in favour of the official C# MCP SDK and migrated the servers built on it.",
+      "Discontinued: the official C# MCP SDK, maintained in collaboration with Microsoft, has replaced this framework. It was a Model Context Protocol server framework for .NET, built before an official SDK matured. It supported multiple transports with session management, JWT and API key authentication, JSON schema validation, and attribute-based tool discovery, and was adopted by other engineers to build servers over line-of-business systems. Logan later led its retirement in favour of the official C# MCP SDK and migrated the servers built on it.",
     tech: [".NET 9", "C#", "ASP.NET Core", "gRPC", "SignalR", "Polly"],
     highlights: [
       "5 transports: stdio, REST, Streamable HTTP, SignalR and gRPC",
@@ -117,7 +117,7 @@ export const projects = [
       "Rate limiting with 3 strategies (fixed window, sliding window, token bucket), a circuit breaker and caching",
       "LangChain/LangGraph integration with Python client support",
       "Published as NuGet packages through a three-stage pipeline with analysers, warnings as errors and a dependency scan",
-      "Retired deliberately once the official SDK covered the same ground, with a documented migration path",
+      "Discontinued once the official SDK covered the same ground, with a documented migration path for the servers built on it",
     ],
   },
   {
