@@ -1,8 +1,8 @@
 // Service Worker for Logan Venter Portfolio
 // Site version and the date the content was last updated. Keep both in step
 // with the version line shown in the menu in index.html.
-const SITE_VERSION = '1.7.10';
-const SITE_UPDATED = '2026-10-09';
+const SITE_VERSION = '1.8.0';
+const SITE_UPDATED = '2026-10-10';
 const CACHE_NAME = `logan-venter-portfolio-v${SITE_VERSION}-${SITE_UPDATED}`;
 const urlsToCache = [
     '/',
@@ -18,7 +18,7 @@ const urlsToCache = [
     '/assets/images/image.jpg',
     '/assets/images/tawk-main.png',
     '/assets/images/matrix-clock.png',
-    '/assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf'
+    '/assets/documents/Logan Venter Curriculum Vitae 10-10-2026.pdf'
 ];
 
 // Install event - cache resources, and take over without waiting for old tabs to close

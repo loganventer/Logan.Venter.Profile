@@ -212,7 +212,7 @@
                 </svg>
                 <span class="site-brand">
                     <span>Logan Venter</span>
-                    <span class="site-version" title="Site version and the date the content was last updated">v1.7.10, updated 9 Oct 2026</span>
+                    <span class="site-version" title="Site version and the date the content was last updated">v1.8.0, updated 10 Oct 2026</span>
                 </span>
             </a>
             <div class="desktop-nav hidden lg:flex items-center space-x-4">
@@ -262,7 +262,7 @@
                 <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
                     <i id="theme-icon" class="fas fa-moon"></i>
                 </button>
-                <a href="assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf" download="Logan Venter Curriculum Vitae 09-10-2026.pdf" class="btn-primary text-white font-bold py-2 px-4 rounded-lg inline-flex items-center justify-center whitespace-nowrap">
+                <a href="assets/documents/Logan Venter Curriculum Vitae 10-10-2026.pdf" download="Logan Venter Curriculum Vitae 10-10-2026.pdf" class="btn-primary text-white font-bold py-2 px-4 rounded-lg inline-flex items-center justify-center whitespace-nowrap">
                     <i class="fas fa-download mr-2"></i>Download My CV
                 </a>
             </div>
@@ -312,10 +312,10 @@
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('featured-projects', this); toggleMobileMenu();">Featured Projects</a>
             <a href="#" class="block py-2 text-white text-lg" onclick="showSection('personal-interests', this); toggleMobileMenu();">Personal Interests</a>
             <a href="#" class="block py-3 text-white text-xl" onclick="showSection('references', this); toggleMobileMenu();">References</a>
-            <a href="assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf" download="Logan Venter Curriculum Vitae 09-10-2026.pdf" class="mt-8 inline-flex items-center justify-center btn-primary text-white font-bold py-3 px-5 rounded-lg whitespace-nowrap">
+            <a href="assets/documents/Logan Venter Curriculum Vitae 10-10-2026.pdf" download="Logan Venter Curriculum Vitae 10-10-2026.pdf" class="mt-8 inline-flex items-center justify-center btn-primary text-white font-bold py-3 px-5 rounded-lg whitespace-nowrap">
                 <i class="fas fa-download mr-2"></i>Download CV
             </a>
-            <p class="site-version site-version-mobile">v1.7.10, updated 9 Oct 2026</p>
+            <p class="site-version site-version-mobile">v1.8.0, updated 10 Oct 2026</p>
         </div>
     </div>
 
@@ -326,7 +326,7 @@
                 <div class="hero-top">
                     <div class="float-right ml-6 mb-4 text-center">
                         <img src="assets/images/image.jpg" alt="A photo of Logan Venter" class="profile-pic rounded-full w-32 h-32 md:w-48 md:h-48 mx-auto object-cover shadow-lg border-2 border-sky-500">
-                        <a href="assets/documents/Logan Venter Curriculum Vitae 09-10-2026.pdf" download="Logan Venter Curriculum Vitae 09-10-2026.pdf" class="btn-primary inline-flex items-center justify-center lg:hidden text-white font-bold py-2 px-4 rounded-lg mt-4 whitespace-nowrap">
+                        <a href="assets/documents/Logan Venter Curriculum Vitae 10-10-2026.pdf" download="Logan Venter Curriculum Vitae 10-10-2026.pdf" class="btn-primary inline-flex items-center justify-center lg:hidden text-white font-bold py-2 px-4 rounded-lg mt-4 whitespace-nowrap">
                             <i class="fas fa-download mr-2"></i>Download CV
                         </a>
                     </div>
@@ -384,7 +384,8 @@
                             <ul>
                                 <li>Native terminal client in C and ncurses, linked to your phone like WhatsApp Web</li>
                                 <li>Two interchangeable WhatsApp backends behind one contract</li>
-                                <li>Up to eight accounts, an encrypted local database, voice notes, media and statuses</li>
+                                <li>Up to eight accounts, an encrypted local database, voice note transcripts, media and statuses</li>
+                                <li>Agent rules per chat, TL;DR summaries, and an owner&rsquo;s chat for instructing your agent from your phone</li>
                                 <li><a href="https://github.com/loganventer/tawk" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">github.com/loganventer/tawk</a></li>
                             </ul>
                             <div class="mt-2">
@@ -400,6 +401,7 @@
                             <ul>
                                 <li>Lets AI clients read chats through tawk and act with your approval</li>
                                 <li>Destructive actions need two confirmations, one of which the model can never give</li>
+                                <li>More than 90 tools, including transcripts, summaries, labels and reminders</li>
                                 <li>Six iDesign layers on .NET 10 and the official MCP C# SDK</li>
                                 <li><a href="https://github.com/loganventer/tawk-mcp" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">github.com/loganventer/tawk-mcp</a></li>
                             </ul>
@@ -1719,13 +1721,16 @@
                             <span class="project-label project-label-green">Open Source</span>
                             <h3 class="text-2xl font-bold mb-3">tawk: WhatsApp in the Terminal</h3>
                             <div class="text-gray-400 mb-4">
-                                An open source WhatsApp client for the terminal, written in C with ncurses. It links to your phone the same way WhatsApp Web does, keeps chats in a local SQLite database, and brings notifications, voice notes, media, statuses and themes to the terminal. Independent project, not affiliated with WhatsApp or Meta.
+                                An open source WhatsApp client for the terminal, written in C with ncurses. It links to your phone the same way WhatsApp Web does, keeps chats in a local SQLite database, and brings notifications, voice notes with transcripts, media, statuses and themes to the terminal. AI agents can work in it under rules you set chat by chat. Independent project, not affiliated with WhatsApp or Meta.
                             </div>
                             <ul class="project-points mb-4">
                                 <li>Two interchangeable WhatsApp backends behind one contract, switched with one config key</li>
                                 <li>Up to eight accounts in one window, with photos and PDFs drawn as real pixels on Sixel terminals</li>
-                                <li>Chat database encrypted at rest, with encrypted backup and restore</li>
-                                <li>A control socket that lets scripts and AI agents reach a running tawk, with an access level per account</li>
+                                <li>Voice notes transcribed in the language spoken, and a TL;DR mode that folds long messages into summaries written by a connected agent</li>
+                                <li>An owner&rsquo;s chat: talk to your agent and approve its requests from WhatsApp on your phone</li>
+                                <li>Agent rules per chat (always ask, read only, hidden), with one-time codes and card numbers masked before a model sees them</li>
+                                <li>Encrypted chats, tamper-evident backups and a lock that asks for your passphrase</li>
+                                <li>Labels, reminders and filters for a long chat list, and system notifications with quiet hours</li>
                             </ul>
                             <img src="assets/images/tawk-main.png" alt="tawk showing a group chat with a photo, reactions and an edited message" class="project-shot mb-4" loading="lazy">
                             <div class="flex flex-wrap gap-2 mt-4">
@@ -1751,9 +1756,11 @@
                                 An open source <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">Model Context Protocol</a> server that lets AI clients such as Claude Code, Claude Desktop and VS Code read WhatsApp chats through a running tawk and act on them with your approval. Every send waits for approval in tawk, and anything destructive needs two separate confirmations, one of which the model can never give.
                             </div>
                             <ul class="project-points mb-4">
-                                <li>Close to 90 tools across chats, messages, scheduling, statuses, voice notes and memory</li>
+                                <li>More than 90 tools across chats, messages, scheduling, statuses, labels, reminders, voice notes and memory</li>
                                 <li>Six iDesign layers with every interface bound in one composition root</li>
                                 <li>Message text reaches the model inside clearly marked blocks it is told not to obey</li>
+                                <li>Writes voice note transcripts and TL;DR summaries when tawk asks for them</li>
+                                <li>Hears you in your own chat as instructions, and treats everything else as data</li>
                                 <li>Memory for writing like you: voices tuned per audience, contact profiles and reply templates</li>
                             </ul>
                             <pre class="mermaid mb-4">
