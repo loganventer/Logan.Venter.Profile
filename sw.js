@@ -1,7 +1,7 @@
 // Service Worker for Logan Venter Portfolio
 // Site version and the date the content was last updated. Keep both in step
 // with the version line shown in the menu in index.html.
-const SITE_VERSION = '1.8.0';
+const SITE_VERSION = '1.8.1';
 const SITE_UPDATED = '2026-10-10';
 const CACHE_NAME = `logan-venter-portfolio-v${SITE_VERSION}-${SITE_UPDATED}`;
 const urlsToCache = [

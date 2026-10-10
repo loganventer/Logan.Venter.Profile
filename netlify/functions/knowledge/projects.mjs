@@ -37,7 +37,7 @@ export const projects = [
       "Human-in-the-loop by design: approved sends, two-step confirmation for destructive operations, and separate access levels for reading, sending and managing",
       "Prompt injection defence: message text reaches the model inside clearly marked blocks it is told not to obey",
       "Memory for writing like the owner: voices tuned per audience with a scorer, contact profiles with a source and confidence on every field, and reply templates",
-      "Knowledge held in the Open Knowledge Format, with optional sync between machines through a private git repository",
+      "Knowledge held in the Open Knowledge Format, with optional sync between machines through a private git repository of the owner's, merged row by row, which an agent can also start on demand",
       "Streamable HTTP on loopback with a bearer token by default, stdio when a client should start it, and a Docker image",
       "Resilient connection to tawk: starts without it, reconnects after restarts, with backoff and a circuit breaker",
       "Nullable reference types, analysers and warnings as errors on every project",
